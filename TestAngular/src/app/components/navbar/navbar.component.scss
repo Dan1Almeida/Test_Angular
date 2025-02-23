@@ -1,0 +1,36 @@
+// Definição das cores
+$color-primary: #274659;
+$color-secondary: #345B73;
+$color-dark: #283B40;
+$color-light: #BEBFBD;
+$color-muted: #F2F2F2;
+
+// Navbar
+.navbar {
+  background-color: $color-primary;
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: $color-muted !important;
+        display: flex;
+        align-items: center;
+
+        // Mudança de cor ao passar o mouse
+        &:hover {
+          color: $color-light !important;
+        }
+
+        // Ícones
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+
+  // Estilo para o botão de toggle (hamburguer)
+  .navbar-toggler {
+    border-color: $color-light;
+  }
+}

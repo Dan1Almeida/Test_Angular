@@ -7,8 +7,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 import { CadastrarPessoaComponent } from './pages/pessoas/cadastrar-pessoa/cadastrar-pessoa.component';
 import { EditarPessoaComponent } from './pages/pessoas/editar-pessoa/editar-pessoa.component';
+import { ListarPessoaComponent } from './pages/pessoas/listar-pessoa/listar-pessoa.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { EditarPessoaComponent } from './pages/pessoas/editar-pessoa/editar-pess
     NavbarComponent,
     HomeComponent,
     CadastrarPessoaComponent,
-    EditarPessoaComponent
+    EditarPessoaComponent,
+    ListarPessoaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
