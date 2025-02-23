@@ -1,0 +1,55 @@
+// Variáveis para as cores
+$color-primary: #171FBF;
+$color-dark: #111559;
+$color-secondary: #171C73;
+$color-light: #D9D9D9;
+$color-muted: #595959;
+
+// Navbar estilos
+.navbar {
+  background-color: $color-dark;
+  .navbar-brand {
+    color: $color-light;
+    font-size: 1.5rem;
+    font-weight: bold;
+    .fa-store {
+      color: $color-primary;
+    }
+  }
+
+  .nav-link {
+    color: $color-light;
+    font-size: 1.1rem;
+    font-weight: normal;
+    &:hover {
+      color: $color-primary;
+      text-decoration: none;
+    }
+  }
+
+  .navbar-toggler-icon {
+    background-color: $color-light;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      margin-left: 1rem;
+    }
+  }
+
+  .custom-link {
+    color: $color-light;
+    font-size: 1.1rem;
+    font-weight: normal;
+    &:hover {
+      color: $color-primary;
+      text-decoration: none;
+    }
+  }
+}
+
+// Adicionando uma cor de fundo ao body
+body {
+  background-color: $color-dark;
+  color: $color-light;
+}
