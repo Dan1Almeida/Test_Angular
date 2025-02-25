@@ -1,5 +1,5 @@
-$color-primary: #274659;
-$color-secondary: #345B73;
-$color-dark: #283B40;
-$color-light: #BEBFBD;
-$color-muted: #F2F2F2;
+@import "styles/variables";
+
+body {
+  background-color:#e4e5e5;
+}

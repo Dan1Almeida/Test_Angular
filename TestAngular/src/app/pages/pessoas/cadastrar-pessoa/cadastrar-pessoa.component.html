@@ -1,58 +1,37 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="card bg-dark text-light">
-
-        <div class="card-body">
-          <form>
-            <!-- Nome -->
-            <div class="mb-3">
-              <label for="nome" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
-            </div>
-
-            <!-- CEP -->
-            <div class="mb-3">
-              <label for="cep" class="form-label">CEP</label>
-              <input type="text" class="form-control" id="cep" placeholder="Digite seu CEP">
-            </div>
-
-            <!-- Endereço -->
-            <div class="mb-3">
-              <label for="endereco" class="form-label">Endereço</label>
-              <input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço">
-            </div>
-
-            <!-- Cidade -->
-            <div class="mb-3">
-              <label for="cidade" class="form-label">Cidade</label>
-              <input type="text" class="form-control" id="cidade" placeholder="Digite sua cidade">
-            </div>
-
-            <!-- UF -->
-            <div class="mb-3">
-              <label for="uf" class="form-label">UF</label>
-              <select class="form-select" id="uf">
-                <option value="" disabled selected>Selecione o estado</option>
-                <option value="SP">São Paulo</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <!-- Adicione os estados conforme necessário -->
-              </select>
-            </div>
-
-            <!-- Botões -->
-            <div class="d-flex justify-content-start gap-2">
-              <!-- Botão de Limpar -->
-              <button type="reset" class="btn btn-outline-secondary">Limpar</button>
-
-              <!-- Botão de Enviar -->
-              <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+<form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nome">Nome</label>
+    <input id="nome" formControlName="nome" type="text" />
   </div>
-</div>
+
+  <div>
+    <label for="cep">CEP</label>
+    <input
+      id="cep"
+      formControlName="cep"
+      type="text"
+      (blur)="buscarEndereco()" />
+  </div>
+
+  <div>
+    <label for="logradouro">Logradouro</label>
+    <input id="logradouro" formControlName="logradouro" type="text" />
+  </div>
+
+  <div>
+    <label for="bairro">Bairro</label>
+    <input id="bairro" formControlName="bairro" type="text" />
+  </div>
+
+  <div>
+    <label for="cidade">Cidade</label>
+    <input id="cidade" formControlName="cidade" type="text" />
+  </div>
+
+  <div>
+    <label for="uf">UF</label>
+    <input id="uf" formControlName="uf" type="text" />
+  </div>
+
+  <button type="submit" [disabled]="cadastroForm.invalid">Cadastrar</button>
+</form>

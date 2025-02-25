@@ -1,36 +1,52 @@
-// Definição das cores
-$color-primary: #274659;
-$color-secondary: #345B73;
-$color-dark: #283B40;
-$color-light: #BEBFBD;
-$color-muted: #F2F2F2;
+@import "src/styles.scss";
 
-// Navbar
+
+
+// Navbar estilos
 .navbar {
-  background-color: $color-primary;
-
-  .navbar-nav {
-    .nav-item {
-      .nav-link {
-        color: $color-muted !important;
-        display: flex;
-        align-items: center;
-
-        // Mudança de cor ao passar o mouse
-        &:hover {
-          color: $color-light !important;
-        }
-
-        // Ícones
-        i {
-          margin-right: 8px;
-        }
-      }
+  background-color: $PlanoFundo_Cinza;
+  .navbar-brand {
+    color: $Texto_Branco;
+    font-size: 1.5rem;
+    font-weight: bold;
+    .fa-store {
+      color: $Cor_acendente;
     }
   }
 
-  // Estilo para o botão de toggle (hamburguer)
-  .navbar-toggler {
-    border-color: $color-light;
+  .nav-link {
+    color: $Texto_Branco;
+    font-size: 1.1rem;
+    font-weight: normal;
+    &:hover {
+      color: $Cor_acendente;
+      text-decoration: none;
+    }
   }
+
+  .navbar-toggler-icon {
+    background-color: $Texto_Branco;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      margin-left: 2.5rem;
+    }
+  }
+
+  .custom-link {
+    color: $Texto_Branco;
+    font-size: 1.1rem;
+    font-weight: normal;
+    &:hover {
+      color: $Cor_acendente;
+      text-decoration: none;
+    }
+  }
+}
+
+// Adicionando uma cor de fundo ao body
+body {
+  background-color: $PlanoFundo_Preto;
+  color: $Texto_Branco;
 }

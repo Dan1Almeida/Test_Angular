@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CadastrarPessoaComponent } from './pages/pessoas/cadastrar-pessoa/cadastrar-pessoa.component';
 import { EditarPessoaComponent } from './pages/pessoas/editar-pessoa/editar-pessoa.component';
 import { ListarPessoaComponent } from './pages/pessoas/listar-pessoa/listar-pessoa.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ListarPessoaComponent } from './pages/pessoas/listar-pessoa/listar-pess
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
