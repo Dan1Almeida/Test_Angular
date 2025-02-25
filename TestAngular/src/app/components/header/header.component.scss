@@ -1,47 +1,31 @@
 @import "src/styles.scss";
 
-// Estilos gerais do header
 header {
   font-family: Arial, sans-serif;
   color: $Texto_Branco;
-  padding: 10px 40px; // Afastando do topo e laterais da tela
 
-  // Navbar
+
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px; // Adicionando mais espaço interno
+    padding: 15px 50px;
     background-color: $PlanoFundo_Preto;
-    border-radius: 10px;
+
 
     .navbar-left {
       .navbar-text {
+        font-family: var(--font-logo);
         font-size: 1.5rem;
         font-weight: bold;
-        color: $Texto_Branco; // Afastando da borda esquerda
-        color: rgb(167, 47, 47);
+        color: $Texto_Branco;
       }
     }
 
-    .navbar-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-right: 20px; // Afastando da borda direita
-
-      .navbar-icon {
-        font-size: 1.5rem;
-        color: $Texto_Branco;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: $Cor_acendente;
-        }
-      }
 
       .navbar-link {
-        color: $Texto_Branco;
+        color: $Texto_Cinza;
+        font-family: var(--font-Corpo);
         font-size: 1.5rem;
         text-decoration: none;
         transition: color 0.3s ease;
@@ -52,12 +36,9 @@ header {
       }
     }
   }
-}
 
 @media (max-width: 600px) {
-  header {
-    padding: 10px 20px; // Ajustando espaçamento em telas menores
-  }
+
 
   .navbar {
     display: flex;
@@ -90,4 +71,3 @@ header {
     width: 100%; // Ocupar a largura total
   }
 }
-

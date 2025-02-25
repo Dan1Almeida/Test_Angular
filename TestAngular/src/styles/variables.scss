@@ -1,5 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Comfortaa:wght@300..700&family=Inconsolata:wght@200..900&display=swap');
+
+
+// Fonte
+
+:root {
+  --font-logo: 'Comfortaa', sans-serif;
+  --font-Corpo: "Inconsolata", serif;
+  --font-titulo: 'Open Sans', sans-serif;
+  --font-navbar: 'Roboto', sans-serif;
+  --font-botao: 'Comfortaa', sans-serif;
+
+}
+
+// Plano de Fundo
+
 $PlanoFundo_Cinza: #343a40;
 $PlanoFundo_Preto: #0D0D0D;
+$PlanoFundo_Default: #e4e5e5;
+
+// Cor Texto
+
 $Texto_Cinza: #aaa;
 $Texto_Branco: white;
 $Cor_acendente: #007bff;
+$Cor_card: #5bc0de;

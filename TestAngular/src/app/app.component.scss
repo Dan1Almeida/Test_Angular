@@ -1,0 +1,28 @@
+@import "src/styles.scss";
+
+// Estilizando o container e os elementos
+div {
+  background-color: $PlanoFundo_Cinza;
+  color: $Texto_Branco;
+  padding: 5px;
+  margin: 10px 40px;
+  border-radius: 15px;
+
+
+  h1 {
+      color: $Cor_card;
+      font-size: 2rem;
+      text-align: center;
+      font-family: var(--font-titulo);
+
+    }
+
+
+  // Estilizando o texto simples
+  .texto-simples {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: var(--font-Corpo);
+  }
+}

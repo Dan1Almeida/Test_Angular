@@ -1,0 +1,116 @@
+@import "src/styles.scss";
+
+main {
+  margin: 15px 40px;
+}
+
+
+.header-container {
+  margin-bottom: 20px;
+  text-align: left;
+
+  .header-title {
+    color: $Cor_acendente;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .header-text {
+    color: rgb(13, 54, 82);
+    font-size: 1rem;
+    font-family: var(--font-Corpo);
+    font-weight: 500;
+
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+
+  .card {
+    background-color: $PlanoFundo_Default;
+    color: $Texto_Branco;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+      background-color: $PlanoFundo_Cinza;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-bottom: 1px solid $Texto_Cinza;
+      color: $Texto_Branco;
+
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+    }
+
+    .card-body {
+      padding: 15px;
+      font-size: 1rem;
+      color: rgb(13, 54, 82);
+    }
+
+    .card-body .highlight {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: $Cor_acendente;
+    }
+
+    .card-body ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    .card-footer {
+      padding: 15px;
+      text-align: center;
+
+      .btn-primary {
+        background-color: $PlanoFundo_Cinza;
+        border: none;
+        color: $Texto_Branco;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: darken($PlanoFundo_Cinza, 10%);
+        }
+      }
+    }
+  }
+
+  // Responsividade
+  @media (max-width: 768px) {
+    .card {
+      width: 48%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card {
+      width: 100%;
+    }
+  }
+}
