@@ -1,67 +1,18 @@
-// Novas variáveis de Cores
-$color-primary: #274659;
-$color-secondary: #345B73;
-$color-dark: #283B40;
-$color-light: #BEBFBD;
-$color-muted: #F2F2F2;
+@import "src/styles.scss";
 
-// Estilos para o formulário
-.card {
-  background-color: $color-dark;
-  border: 1px solid $color-secondary;
 
-  .card-header {
-    background-color: $color-secondary;
-    color: $color-light;
-  }
 
-  .form-label {
-    color: $color-light;
-  }
 
-  .form-control {
-    background-color: $color-secondary;
-    color: $color-light;
-    border: 1px solid $color-muted;
-    &:focus {
-      border-color: $color-primary;
-      background-color: $color-dark;
-    }
-  }
+.btn-primary {
+  background-color: $PlanoFundo_Cinza;
+  border: none;
+  color: $Texto_Branco;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
-  .form-select {
-    background-color: $color-secondary;
-    color: $color-light;
-    border: 1px solid $color-muted;
-    &:focus {
-      border-color: $color-primary;
-      background-color: $color-dark;
-    }
-  }
-
-  .btn-primary {
-    background-color: $color-primary;
-    border: none;
-    &:hover {
-      background-color: lighten($color-primary, 10%);
-    }
-  }
-
-  .btn-outline-secondary {
-    border-color: $color-muted;
-    color: $color-light;
-    &:hover {
-      background-color: $color-muted;
-      color: $color-dark;
-    }
-  }
-
-  // Estilo para o alinhamento do formulário à esquerda
-  .row {
-    justify-content: flex-start;
-  }
-
-  .d-flex {
-    margin-top: 15px;
-  }
-}
+  &:hover {
+    background-color: darken($PlanoFundo_Cinza, 10%);
+  }}

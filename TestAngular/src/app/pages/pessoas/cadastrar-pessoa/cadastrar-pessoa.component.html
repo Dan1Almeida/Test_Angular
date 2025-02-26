@@ -1,37 +1,49 @@
-<form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="nome">Nome</label>
-    <input id="nome" formControlName="nome" type="text" />
+<main>
+
+  <div class="header-container">
+    <h2 class="header-title">Introdução</h2>
+    <p class="header-text">Este projeto tem como objetivo, cadastrar pessoas seguindo determinados atributos, assim criando o objeto pessoa e apartir disto conseguir manipular cadasatro de contatos e atribuir a pessoa, podendo também editar conforme necessidade e ainda listar todas pessoas cadastradas</p>
   </div>
 
-  <div>
-    <label for="cep">CEP</label>
-    <input
-      id="cep"
-      formControlName="cep"
-      type="text"
-      (blur)="buscarEndereco()" />
-  </div>
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="cep" class="form-label">CEP</label>
+        <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
+      </div>
+    </div>
 
-  <div>
-    <label for="logradouro">Logradouro</label>
-    <input id="logradouro" formControlName="logradouro" type="text" />
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="logradouro" class="form-label">Logradouro</label>
+        <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="bairro" class="form-label">Bairro</label>
+        <input id="bairro" formControlName="bairro" type="text" class="form-control" placeholder="Bairro" />
+      </div>
+    </div>
 
-  <div>
-    <label for="bairro">Bairro</label>
-    <input id="bairro" formControlName="bairro" type="text" />
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input id="cidade" formControlName="cidade" type="text" class="form-control" placeholder="Cidade" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="uf" class="form-label">UF</label>
+        <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" />
+      </div>
+    </div>
 
-  <div>
-    <label for="cidade">Cidade</label>
-    <input id="cidade" formControlName="cidade" type="text" />
-  </div>
+    <button type="submit" class="btn btn-primary" [disabled]="cadastroForm.invalid">Cadastrar</button>
+  </form>
 
-  <div>
-    <label for="uf">UF</label>
-    <input id="uf" formControlName="uf" type="text" />
-  </div>
 
-  <button type="submit" [disabled]="cadastroForm.invalid">Cadastrar</button>
-</form>
+
+
+
+</main>
