@@ -1,11 +1,12 @@
 <main>
-
   <div class="header-container">
     <h2 class="header-title">Introdução</h2>
-    <p class="header-text">Este projeto tem como objetivo, cadastrar pessoas seguindo determinados atributos, assim criando o objeto pessoa e apartir disto conseguir manipular cadasatro de contatos e atribuir a pessoa, podendo também editar conforme necessidade e ainda listar todas pessoas cadastradas</p>
+    <p class="header-text">
+      Este projeto tem como objetivo cadastrar pessoas seguindo determinados atributos, criando o objeto pessoa e a partir disso, permitir o gerenciamento de contatos, possibilitando edição e listagem de todas as pessoas cadastradas.
+    </p>
   </div>
 
-  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="FormGroupPessoa" (ngSubmit)="cadastrarPessoa()">
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="nome" class="form-label">Nome</label>
@@ -13,14 +14,14 @@
       </div>
       <div class="col-md-6 mb-3">
         <label for="cep" class="form-label">CEP</label>
-        <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
+        <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" />
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-6 mb-3">
-        <label for="logradouro" class="form-label">Logradouro</label>
-        <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro" />
+        <label for="logradouro" class="form-label">Endereço</label>
+        <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Endereço" />
       </div>
       <div class="col-md-6 mb-3">
         <label for="bairro" class="form-label">Bairro</label>
@@ -39,11 +40,6 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="cadastroForm.invalid">Cadastrar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="FormGroupPessoa.invalid">Cadastrar</button>
   </form>
-
-
-
-
-
 </main>
