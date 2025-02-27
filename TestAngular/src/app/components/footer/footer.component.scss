@@ -1,9 +1,9 @@
 @import "src/styles.scss";
 
-/* Estilos do footer */
+
 .footer {
-  background-color: $PlanoFundo_Preto;
-  color: $Texto_Branco;
+  background-color: $Bg_Preto;
+  color: $Font_Branco;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -28,13 +28,13 @@
     margin-bottom: 15px;
 
     a {
-      color: $Texto_Cinza;
+      color: $Font_Cinza;
       font-weight: 600;
       text-decoration: none;
       transition: color 0.3s ease;
 
       &:hover {
-        color: $Cor_acendente;
+        color: $Font_Acendente;
       }
     }
   }
@@ -48,11 +48,11 @@
 
 
     .icon {
-      color: $Texto_Cinza;
+      color: $Font_Cinza;
       transition: color 0.3s ease;
 
       &:hover {
-        color: $Cor_acendente;
+        color: $Font_Acendente;
       }
     }
   }
@@ -61,11 +61,7 @@
     max-width: 80%;
     font-size: 0.9rem;
     font-family: var(--font-Corpo);
-
-
-    p {
-      color: $Texto_Cinza;
-    }
+    color: $Font_Cinza;
   }
 }
 

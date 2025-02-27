@@ -4,9 +4,9 @@
 
 
 .btn-primary {
-  background-color: $PlanoFundo_Cinza;
+  background-color: $Font_DescricaoBotao;
   border: none;
-  color: $Texto_Branco;
+  color: $Font_Branco;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
@@ -14,5 +14,5 @@
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: darken($PlanoFundo_Cinza, 10%);
+    background-color: darken($Font_DescricaoBotao, 10%);
   }}

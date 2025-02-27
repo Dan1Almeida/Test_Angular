@@ -1,51 +1,23 @@
 @import "src/styles.scss";
 
+
 .navbar {
-  background-color: $PlanoFundo_Cinza;
+  background-color: $Bg_Cinza;
   margin: 0 40px;
   border-radius: 15px;
-  .navbar-brand {
-    color: $Texto_Branco;
-    font-size: 1.5rem;
-    font-weight: bold;
-    .fa-store {
-      color: $Cor_acendente;
-    }
-  }
 
   .nav-link {
-    color: $Texto_Branco;
-    font-size: 1.1rem;
-    font-weight: normal;
+    color: $Font_Branco;
+    font-size: 1.2rem;
     &:hover {
-      color: $Cor_acendente;
-      text-decoration: none;
+      color: $Font_Acendente;
     }
-  }
-
-  .navbar-toggler-icon {
-    background-color: $Texto_Branco;
   }
 
   .navbar-nav {
     .nav-item {
-      margin-left: 2.5rem;
+      margin: 0 30px;
     }
   }
 
-  .custom-link {
-    color: $Texto_Branco;
-    font-size: 1.1rem;
-    font-weight: normal;
-    &:hover {
-      color: $Cor_acendente;
-      text-decoration: none;
-    }
-  }
-}
-
-// Adicionando uma cor de fundo ao body
-body {
-  background-color: $PlanoFundo_Preto;
-  color: $Texto_Branco;
 }

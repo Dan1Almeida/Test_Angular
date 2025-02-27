@@ -1,37 +1,32 @@
 @import "src/styles.scss";
 
 header {
-  font-family: Arial, sans-serif;
-  color: $Texto_Branco;
-
 
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    background-color: $PlanoFundo_Preto;
-
+    padding: 15px 40px;
+    background-color: $Bg_Preto;
 
     .navbar-left {
       .navbar-text {
         font-family: var(--font-logo);
         font-size: 1.5rem;
         font-weight: bold;
-        color: $Texto_Branco;
+        color: $Font_Branco;
       }
     }
 
-
       .navbar-link {
-        color: $Texto_Cinza;
+        color: $Font_Cinza;
         font-family: var(--font-Corpo);
         font-size: 1.5rem;
         text-decoration: none;
         transition: color 0.3s ease;
 
         &:hover {
-          color: $Cor_acendente;
+          color: $Font_Acendente;
         }
       }
     }
@@ -39,35 +34,14 @@ header {
 
 @media (max-width: 600px) {
 
-
   .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 15px;
-    width: 100%;
   }
 
   .navbar-left {
-    display: flex;
-    justify-content: center; // Centraliza o texto "Meu Site"
-    width: 100%; // Garantir que ocupe toda a largura
-    margin: 0; // Remover qualquer margem extra
-    padding: 0; // Eliminar padding desnecessário
-    margin-bottom: 10px; // Espaçamento entre as duas linhas
-  }
-
-  .navbar-text {
-    margin: 0; // Garantir que o texto "Meu Site" não tenha margem extra
-    padding: 0; // Eliminar padding desnecessário
-  }
-
-  .navbar-right {
-    display: flex;
-    justify-content: center; // Centraliza ícone e URL na segunda linha
-    align-items: center;
-    gap: 15px;
-    width: 100%; // Ocupar a largura total
+    margin-bottom: 10px;
   }
 }

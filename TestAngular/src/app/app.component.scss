@@ -1,28 +1,49 @@
 @import "src/styles.scss";
 
-// Estilizando o container e os elementos
-div {
-  background-color: $PlanoFundo_Cinza;
-  color: $Texto_Branco;
-  padding: 5px;
-  margin: 10px 40px;
-  border-radius: 15px;
 
 
-  h1 {
-      color: $Cor_card;
-      font-size: 2rem;
+main {
+  margin: 10px 40px 40px 40px;
+}
+
+
+
+
+.banner {
+  div {
+    background-color: $Bg_Cinza;
+    padding: 20px;
+    margin: 10px 40px;
+    border-radius: 15px;
+
+    h1 {
+      font-family: var(--font-logo);
+      color: $Font_Branco;
+      font-size: 3rem;
       text-align: center;
-      font-family: var(--font-titulo);
-
+      margin-bottom: 10px;
     }
 
+    p {
+      margin: 0;
+      font-size: 1.5rem;
+      text-align: center;
+      font-family: var(--font-Corpo);
+      color: $Font_Cinza;
+    }
+  }
 
-  // Estilizando o texto simples
-  .texto-simples {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    text-align: center;
-    font-family: var(--font-Corpo);
+  @media (max-width: 768px) {
+    div {
+      padding: 1px;
+
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
   }
 }

@@ -1,10 +1,27 @@
 @import "styles/variables";
 
 body {
-  background-color: $PlanoFundo_Default;
+  background-color: $Bg_Default;
 }
 
 
-main {
-  margin: 10px 20px;
+.header-container {
+  margin-bottom: 20px;
+  text-align: left;
+  border-bottom: 2px solid $Font_Acendente;
+
+  .header-title {
+    color: $Font_Acendente;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .header-text {
+    color: $Font_DescricaoBotao;
+    font-size: 1rem;
+    font-family: var(--font-Corpo);
+    text-align: justify;
+
+  }
 }
