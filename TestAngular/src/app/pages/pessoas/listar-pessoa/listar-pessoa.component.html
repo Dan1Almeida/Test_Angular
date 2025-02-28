@@ -9,35 +9,47 @@
   </div>
 
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>o</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>t</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>a</td>
-    </tr>
-  </tbody>
-</table>
+  <div>
+    <form [formGroup]="formFiltro" (ngSubmit)="filtrarPessoas()" class="mb-3">
+      <div class="row">
+        <div class="col-md-5">
+          <input type="text" class="form-control" formControlName="nome" placeholder="Filtrar por nome">
+        </div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" formControlName="cidade" placeholder="Filtrar por cidade">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+        </div>
+      </div>
+    </form>
+
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Logradouro</th>
+          <th>Bairro</th>
+          <th>Cidade</th>
+          <th>UF</th>
+          <th>Celular</th>
+          <th>Outros contatos</th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pessoa of pessoas">
+          <td>{{ pessoa.id }}</td>
+          <td>{{ pessoa.nome }}</td>
+          <td>{{ pessoa.logradouro }}</td>
+          <td>{{ pessoa.bairro }}</td>
+          <td>{{ pessoa.cidade }}</td>
+          <td>{{ pessoa.uf }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 
 </main>

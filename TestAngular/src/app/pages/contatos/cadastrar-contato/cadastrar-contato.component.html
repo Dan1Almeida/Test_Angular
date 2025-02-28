@@ -7,5 +7,18 @@
       Caso deseje, pode selecionar outro tipo de contato para cadastrar e, por fim, concluir o cadastro.</p>
   </div>
 
-
+  <form class="pesquisa mb-3">
+    <p>Preencha o ID desejado e confira o nome da pessoa</p>
+    <div class="row">
+      <div class="col-md-2">
+        <input type="text" class="form-control" formControlName="nome" placeholder="Filtrar por nome">
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+      </div>
+      <div class="col-md-8">
+        <input type="text" class="form-control" formControlName="cidade" placeholder="Filtrar por cidade">
+      </div>
+    </div>
+  </form>
   </main>

@@ -20,4 +20,8 @@ export class PessoaService {
   cadastrarPessoa(pessoa: IPessoa): Observable<IPessoa> {
     return this.http.post<IPessoa>(`${this.url}/pessoas`, pessoa);
   }
+
+  listarPessoas(): Observable<IPessoa[]> {
+    return this.http.get<IPessoa[]>(`${this.url}/pessoas`);
+  }
 }
