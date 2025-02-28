@@ -1,9 +1,10 @@
 <main>
-  <div class="header-container">
-    <h2 class="header-title">Introdução</h2>
-    <p class="header-text">
-      Este projeto tem como objetivo cadastrar pessoas seguindo determinados atributos, criando o objeto pessoa e a partir disso, permitir o gerenciamento de contatos, possibilitando edição e listagem de todas as pessoas cadastradas.
-    </p>
+  <div class="container-apresentacao">
+    <h2 class="apresentacao-title">Cadastrar Pessoa</h2>
+    <p class="apresentacao-text">Preencha o formulário de cadastro abaixo com as informações solicitadas.
+      Após concluir o preenchimento, clique em 'Confirmar'. A página processará os dados e, se
+      tudo estiver correto, sua pessoa será cadastrada com sucesso no sistema. Caso você preencha
+      o campo CEP corretamente, os demais campos relacionados ao endereço serão atualizados automaticamente.</p>
   </div>
 
   <form [formGroup]="FormGroupPessoa" (ngSubmit)="cadastrarPessoa()">
@@ -14,7 +15,7 @@
       </div>
       <div class="col-md-6 mb-3">
         <label for="cep" class="form-label">CEP</label>
-        <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" />
+        <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()"  />
       </div>
     </div>
 

@@ -5,23 +5,43 @@ body {
 }
 
 
-.header-container {
+// --------------- APRESENTAÇÃO -------------
+
+.container-apresentacao {
   margin-bottom: 20px;
   text-align: left;
   border-bottom: 2px solid $Font_Acendente;
 
-  .header-title {
+  .apresentacao-title {
     color: $Font_Acendente;
     font-size: 2rem;
     margin-bottom: 10px;
     font-weight: bold;
   }
 
-  .header-text {
+  .apresentacao-text {
     color: $Font_DescricaoBotao;
     font-size: 1rem;
     font-family: var(--font-Corpo);
     text-align: justify;
 
+  }
+}
+
+
+// ---------- BOTÃO -----------
+
+.btn-primary {
+  background-color: $Font_DescricaoBotao;
+  border: none;
+  color: $Font_Branco;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($Font_DescricaoBotao, 5%);
   }
 }
