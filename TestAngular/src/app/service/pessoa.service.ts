@@ -8,10 +8,13 @@ import { IPessoa } from '../interfaces/pessoa';
   providedIn: 'root'
 })
 export class PessoaService {
+  atualizarPessoa(id: string, value: any) {
+    throw new Error('Method not implemented.');
+  }
 
   url = environment.url;
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   buscarPessoaPorId(id: string): Observable<IPessoa> {
     return this.http.get<IPessoa>(`${this.url}/pessoas/${id}`);
@@ -24,4 +27,9 @@ export class PessoaService {
   listarPessoas(): Observable<IPessoa[]> {
     return this.http.get<IPessoa[]>(`${this.url}/pessoas`);
   }
+
+  editarPessoa(id: string, pessoa: IPessoa): Observable<IPessoa> {
+    return this.http.put<IPessoa>(`${this.url}/pessoas/${id}`, pessoa);
+  }
+
 }

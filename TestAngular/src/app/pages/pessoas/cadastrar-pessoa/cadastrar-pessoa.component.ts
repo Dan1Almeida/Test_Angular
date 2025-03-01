@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PessoaService } from 'src/app/service/pessoa.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,12 +13,12 @@ import { Endereco } from 'src/app/interfaces/endereco';
   templateUrl: './cadastrar-pessoa.component.html',
   styleUrls: ['./cadastrar-pessoa.component.scss']
 })
-export class CadastrarPessoaComponent implements OnInit {
+export class CadastrarPessoaComponent {
 
   id: string = '';
   FormGroupPessoa: FormGroup = new FormGroup({
     nome: new FormControl('', [Validators.required]),
-    cep: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{5}-[0-9]{3}$')]), // Validação para o formato do CEP
+    cep: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{5}-[0-9]{3}$')]),
     logradouro: new FormControl('', [Validators.required]),
     bairro: new FormControl('', [Validators.required]),
     cidade: new FormControl('', [Validators.required]),
@@ -32,14 +32,7 @@ export class CadastrarPessoaComponent implements OnInit {
     private readonly viaCepService: ViaCepService,
   ) { }
 
-  ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
-    if (this.id) {
-      this.pessoaService.buscarPessoaPorId(this.id).subscribe(response => {
-        console.log(response);
-      })
-    }
-  }
+
 
   cadastrarPessoa() {
     const pessoa: IPessoa = this.FormGroupPessoa.value;

@@ -70,7 +70,6 @@ body {
     }
 
     .card-body {
-      padding: 15px;
       font-size: 1rem;
       color: $Font_DescricaoBotao;
       font-family: var(--font-Corpo);
@@ -86,9 +85,10 @@ body {
       text-align: center;
       background-color: darken($Bg_Branco, 5%);
 
-      .btn-primary {
-        margin-right: 20px;
+      .btn-primary{
+        margin-right: 15px;
       }
+
     }
   }
 }

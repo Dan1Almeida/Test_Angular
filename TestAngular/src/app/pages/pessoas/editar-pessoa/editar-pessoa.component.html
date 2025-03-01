@@ -1,5 +1,4 @@
 <main>
-
   <div class="container-apresentacao">
     <h2 class="apresentacao-title">Editar Pessoa</h2>
     <p class="apresentacao-text">A partir do momento em que uma pessoa estiver cadastrada,
@@ -13,10 +12,12 @@
         <h3>Pesquisar ID</h3>
       </div>
       <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="ID" />
-          <button type="button" class="btn ms-2">Pesquisar</button>
-        </div>
+        <form [formGroup]="formGroupPessoa" (ngSubmit)="buscarPessoa()">
+          <div class="d-flex justify-content-between">
+            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID" />
+            <button type="button" class="btn ms-2" (click)="buscarPessoa()">Pesquisar</button>
+          </div>
+        </form>
       </div>
       <div class="card-footer">
 
@@ -29,8 +30,8 @@
       <div class="card-header">
         <h3>Formulário de Edição</h3>
       </div>
-      <div class="card-body">
-        <form>
+      <form [formGroup]="formGroupPessoa" (ngSubmit)="editarPessoa()">
+        <div class="card-body">
           <div class="row">
             <div class="col-md-8 mb-3">
               <label for="nome" class="form-label">Nome</label>
@@ -38,17 +39,15 @@
             </div>
             <div class="col-md-4 mb-3">
               <label for="cep" class="form-label">CEP</label>
-              <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP"/>
+              <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
             </div>
           </div>
-
           <div class="row">
             <div class="col-md-12 mb-3">
               <label for="logradouro" class="form-label">Logradouro</label>
               <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro" />
             </div>
           </div>
-
           <div class="row">
             <div class="col-md-5 mb-3">
               <label for="bairro" class="form-label">Bairro</label>
@@ -63,12 +62,12 @@
               <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" />
             </div>
           </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Confirmar</button>
-        <button type="button" class="btn">Cancelar</button>
-      </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="formGroupPessoa.invalid">Confirmar</button>
+          <button type="button" class="btn" routerLink="">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </main>

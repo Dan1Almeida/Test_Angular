@@ -12,8 +12,8 @@
       <div class="card-header">
         <h3>Formulário de Cadastro</h3>
       </div>
-      <div class="card-body">
-        <form [formGroup]="FormGroupPessoa" (ngSubmit)="cadastrarPessoa()">
+      <form [formGroup]="FormGroupPessoa" (ngSubmit)="cadastrarPessoa()">
+        <div class="card-body">
           <div class="row">
             <div class="col-md-8 mb-3">
               <label for="nome" class="form-label">Nome</label>
@@ -24,14 +24,12 @@
               <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
             </div>
           </div>
-
           <div class="row">
             <div class="col mb-3">
               <label for="logradouro" class="form-label">Logradouro</label>
               <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro" />
             </div>
           </div>
-
           <div class="row">
             <div class="col-md-5 mb-3">
               <label for="bairro" class="form-label">Bairro</label>
@@ -46,14 +44,12 @@
               <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" />
             </div>
           </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-primary" [disabled]="FormGroupPessoa.invalid">Confirmar</button>
-        <button type="button" class="btn" (click)="limparFormulario()">Reiniciar</button>
-      </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="FormGroupPessoa.invalid">Confirmar</button>
+          <button type="button" class="btn" (click)="limparFormulario()">Reiniciar</button>
+        </div>
+      </form>
     </div>
   </div>
-
-
 </main>

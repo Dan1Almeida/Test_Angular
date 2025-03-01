@@ -13,14 +13,17 @@
         <h3>Pesquisar ID</h3>
       </div>
       <div class="card-body">
-        <div class="d-flex justify-content-between mb-3">
-          <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="ID" />
-          <button type="button" class="btn ms-2">Pesquisar</button>
-        </div>
-        <div>
-          <label for="nome" class="form-label">Nome</label>
-          <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
-        </div>
+        <form [formGroup]="formGroupPessoa" (ngSubmit)="buscarPessoa()">
+          <div class="d-flex justify-content-between mb-3">
+            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID" />
+            <button type="button" class="btn ms-2" (click)="buscarPessoa()">Pesquisar</button>
+          </div>
+
+          <div>
+            <label for="nome" class="form-label contato">Cadastrar Contato de:</label>
+            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" [readonly]="true"/>
+          </div>
+      </form>
       </div>
       <div class="card-footer">
 
@@ -33,35 +36,32 @@
       <div class="card-header">
         <h3>Formulário de Contato</h3>
       </div>
+    <form>
       <div class="card-body">
-        <form>
-          <div class="row">
-            <div class="col mb-3">
-              <label for="nome" class="form-label">Celular</label>
-              <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="N° Celular" />
-            </div>
-
+        <div class="row">
+          <div class="col mb-3">
+            <label for="nome" class="form-label">Celular</label>
+            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="N° Celular" />
           </div>
-
-          <div class="row">
-            <div class="col mb-3">
-              <label for="logradouro" class="form-label">Tipo de Contato</label>
-              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Selecione" />
-            </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <label for="logradouro" class="form-label">Tipo de Contato</label>
+            <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Selecione" />
           </div>
-
-          <div class="row">
-            <div class="col mb-3">
-              <label for="logradouro" class="form-label">Contato</label>
-              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Contato" />
-            </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <label for="logradouro" class="form-label">Contato</label>
+            <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Contato" />
           </div>
-        </form>
+        </div>
       </div>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Confirmar</button>
-        <button type="button" class="btn">Cancelar</button>
-      </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Confirmar</button>
+          <button type="button" class="btn">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 
