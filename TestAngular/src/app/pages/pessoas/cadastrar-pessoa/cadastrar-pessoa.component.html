@@ -7,40 +7,53 @@
       o campo CEP corretamente, os demais campos relacionados ao endereço serão atualizados automaticamente.</p>
   </div>
 
-  <form [formGroup]="FormGroupPessoa" (ngSubmit)="cadastrarPessoa()">
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Formulário de Cadastro</h3>
       </div>
-      <div class="col-md-6 mb-3">
-        <label for="cep" class="form-label">CEP</label>
-        <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()"  />
+      <div class="card-body">
+        <form [formGroup]="FormGroupPessoa" (ngSubmit)="cadastrarPessoa()">
+          <div class="row">
+            <div class="col-md-8 mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="cep" class="form-label">CEP</label>
+              <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="logradouro" class="form-label">Logradouro</label>
+              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <label for="bairro" class="form-label">Bairro</label>
+              <input id="bairro" formControlName="bairro" type="text" class="form-control" placeholder="Bairro" />
+            </div>
+            <div class="col-md-5 mb-3">
+              <label for="cidade" class="form-label">Cidade</label>
+              <input id="cidade" formControlName="cidade" type="text" class="form-control" placeholder="Cidade" />
+            </div>
+            <div class="col-md-2 mb-3">
+              <label for="uf" class="form-label">UF</label>
+              <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="FormGroupPessoa.invalid">Confirmar</button>
+        <button type="button" class="btn" (click)="limparFormulario()">Reiniciar</button>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="logradouro" class="form-label">Endereço</label>
-        <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Endereço" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="bairro" class="form-label">Bairro</label>
-        <input id="bairro" formControlName="bairro" type="text" class="form-control" placeholder="Bairro" />
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="cidade" class="form-label">Cidade</label>
-        <input id="cidade" formControlName="cidade" type="text" class="form-control" placeholder="Cidade" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="uf" class="form-label">UF</label>
-        <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" />
-      </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary" [disabled]="FormGroupPessoa.invalid">Cadastrar</button>
-  </form>
 </main>

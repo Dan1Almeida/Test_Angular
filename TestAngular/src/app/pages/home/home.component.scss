@@ -1,18 +1,11 @@
 @import "src/styles.scss";
 
 .card-container {
-  display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding-top: 10px;
-
   flex-wrap: wrap;
 
   .card {
-    background-color: $Bg_Default;
-    color: $Font_Branco;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 22%;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -20,24 +13,6 @@
     &:hover {
       transform: translateY(-10px);
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .card-header {
-      color: $Font_Branco;
-      background-color: $Bg_Cinza;
-      padding: 15px;
-      text-align: center;
-      h3 {
-        margin: 0;
-        font-size: 1.3rem;
-      }
-    }
-
-    .card-body {
-      padding: 15px;
-      font-size: 1rem;
-      color: $Font_DescricaoBotao;
-      font-family: var(--font-Corpo);
     }
 
     .card-body .highlight {
@@ -52,28 +27,8 @@
       list-style-type: disc;
     }
 
-    .card-footer {
-      padding: 15px;
-      text-align: center;
-
-      .btn-primary {
-        background-color: $Font_DescricaoBotao;
-        border: none;
-        color: $Font_Branco;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-
-        &:hover {
-          background-color: darken($Font_DescricaoBotao, 5%);
-        }
-      }
-    }
   }
 
-  // Responsividade
   @media (max-width: 760px) {
     .card {
       width: 48%;

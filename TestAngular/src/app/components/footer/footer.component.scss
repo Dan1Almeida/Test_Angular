@@ -1,7 +1,7 @@
 @import "src/styles.scss";
 
 
-.footer {
+footer {
   background-color: $Bg_Preto;
   color: $Font_Branco;
   padding-top: 10px;
@@ -65,7 +65,6 @@
   }
 }
 
-/* Responsividade */
 @media (max-width: 600px) {
   .footer-links {
     flex-direction: column;

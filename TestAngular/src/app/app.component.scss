@@ -4,10 +4,8 @@
 
 main {
   margin: 10px 40px 40px 40px;
+  padding: 10px 0;
 }
-
-
-
 
 .banner {
   div {
@@ -35,7 +33,7 @@ main {
 
   @media (max-width: 768px) {
     div {
-      padding: 1px;
+      padding: 15px;
 
       h1 {
         font-size: 1.2rem;

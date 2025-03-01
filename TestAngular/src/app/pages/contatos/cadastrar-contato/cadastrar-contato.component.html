@@ -7,18 +7,62 @@
       Caso deseje, pode selecionar outro tipo de contato para cadastrar e, por fim, concluir o cadastro.</p>
   </div>
 
-  <form class="pesquisa mb-3">
-    <p>Preencha o ID desejado e confira o nome da pessoa</p>
-    <div class="row">
-      <div class="col-md-2">
-        <input type="text" class="form-control" formControlName="nome" placeholder="Filtrar por nome">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Pesquisar ID</h3>
       </div>
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-3">
+          <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="ID" />
+          <button type="button" class="btn ms-2">Pesquisar</button>
+        </div>
+        <div>
+          <label for="nome" class="form-label">Nome</label>
+          <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
+        </div>
       </div>
-      <div class="col-md-8">
-        <input type="text" class="form-control" formControlName="cidade" placeholder="Filtrar por cidade">
+      <div class="card-footer">
+
       </div>
     </div>
-  </form>
-  </main>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Formulário de Contato</h3>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="nome" class="form-label">Celular</label>
+              <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="N° Celular" />
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="logradouro" class="form-label">Tipo de Contato</label>
+              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Selecione" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="logradouro" class="form-label">Contato</label>
+              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Contato" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+        <button type="button" class="btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+</main>

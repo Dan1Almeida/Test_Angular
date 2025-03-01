@@ -1,18 +1,28 @@
 @import "src/styles.scss";
 
 
+.card-container {
+  justify-content: center;
 
+  @media (max-width: 960px) {
+      padding: 15px;
+  }
 
-.btn-primary {
-  background-color: $Font_DescricaoBotao;
-  border: none;
-  color: $Font_Branco;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  @media (max-width: 480px) {
 
-  &:hover {
-    background-color: darken($Font_DescricaoBotao, 10%);
-  }}
+    padding: 10px;
+  }
+}
+
+.card {
+  width: 45%;
+
+  @media (max-width: 760px) {
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
+}

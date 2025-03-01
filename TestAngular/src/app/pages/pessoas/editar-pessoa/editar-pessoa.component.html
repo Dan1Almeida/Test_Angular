@@ -7,57 +7,68 @@
       em seguida, todos os campos serão preenchidos, permitindo que você altere qualquer informação atribuída.</p>
   </div>
 
-  <form class="pesquisa mb-3">
-    <p>Preencha o ID desejado e confira o nome da pessoa</p>
-    <div class="row">
-      <div class="col-md-2">
-        <input type="text" class="form-control" formControlName="nome" placeholder="Filtrar por nome">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Pesquisar ID</h3>
       </div>
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="ID" />
+          <button type="button" class="btn ms-2">Pesquisar</button>
+        </div>
       </div>
-      <div class="col-md-8">
-        <input type="text" class="form-control" formControlName="cidade" placeholder="Filtrar por cidade">
+      <div class="card-footer">
+
       </div>
     </div>
-  </form>
+  </div>
 
-  <form>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Formulário de Edição</h3>
       </div>
-      <div class="col-md-6 mb-3">
-        <label for="cep" class="form-label">CEP</label>
-        <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP"  />
+      <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col-md-8 mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="cep" class="form-label">CEP</label>
+              <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label for="logradouro" class="form-label">Logradouro</label>
+              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <label for="bairro" class="form-label">Bairro</label>
+              <input id="bairro" formControlName="bairro" type="text" class="form-control" placeholder="Bairro" />
+            </div>
+            <div class="col-md-5 mb-3">
+              <label for="cidade" class="form-label">Cidade</label>
+              <input id="cidade" formControlName="cidade" type="text" class="form-control" placeholder="Cidade" />
+            </div>
+            <div class="col-md-2 mb-3">
+              <label for="uf" class="form-label">UF</label>
+              <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+        <button type="button" class="btn">Cancelar</button>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="logradouro" class="form-label">Endereço</label>
-        <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Endereço" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="bairro" class="form-label">Bairro</label>
-        <input id="bairro" formControlName="bairro" type="text" class="form-control" placeholder="Bairro" />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="cidade" class="form-label">Cidade</label>
-        <input id="cidade" formControlName="cidade" type="text" class="form-control" placeholder="Cidade" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="uf" class="form-label">UF</label>
-        <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" />
-      </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Atualizar</button>
-  </form>
+  </div>
 </main>
-
-

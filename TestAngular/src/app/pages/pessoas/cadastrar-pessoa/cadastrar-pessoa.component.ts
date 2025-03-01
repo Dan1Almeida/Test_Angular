@@ -77,4 +77,10 @@ export class CadastrarPessoaComponent implements OnInit {
       });
     }
   }
+
+  limparFormulario() {
+    this.FormGroupPessoa.reset();
+  }
 }
+
+
