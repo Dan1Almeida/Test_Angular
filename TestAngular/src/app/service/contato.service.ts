@@ -1,0 +1,19 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { IContato } from '../interfaces/contato';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ContatoService {
+
+  url = environment.url;
+
+  constructor(private readonly http: HttpClient) {}
+
+  cadastrarContato(pessoaId: number, contato: IContato): Observable<IContato> {
+    return this.http.post<IContato>(`${this.url}/contatos/${pessoaId}`, contato);
+  }
+}

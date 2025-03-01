@@ -8,9 +8,7 @@ import { IPessoa } from '../interfaces/pessoa';
   providedIn: 'root'
 })
 export class PessoaService {
-  atualizarPessoa(id: string, value: any) {
-    throw new Error('Method not implemented.');
-  }
+
 
   url = environment.url;
 

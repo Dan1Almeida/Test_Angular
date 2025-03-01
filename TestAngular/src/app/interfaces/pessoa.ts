@@ -1,3 +1,5 @@
+import { IContato } from 'src/app/interfaces/contato';
+
 export interface IPessoa {
   id: number;
   nome: string;
@@ -5,4 +7,5 @@ export interface IPessoa {
   bairro: string;
   cidade: string;
   uf: string;
+  contatos: IContato[];
 }

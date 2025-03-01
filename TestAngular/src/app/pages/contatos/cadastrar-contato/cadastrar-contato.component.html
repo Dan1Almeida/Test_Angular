@@ -36,32 +36,37 @@
       <div class="card-header">
         <h3>Formulário de Contato</h3>
       </div>
-    <form>
-      <div class="card-body">
-        <div class="row">
-          <div class="col mb-3">
-            <label for="nome" class="form-label">Celular</label>
-            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="N° Celular" />
+      <form [formGroup]="formGroupContato" (ngSubmit)="cadastrarContato()">
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="celular" class="form-label">Celular</label>
+              <input id="celular" formControlName="celular" type="text" class="form-control" placeholder="Digite o número do celular" required />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col mb-3">
-            <label for="logradouro" class="form-label">Tipo de Contato</label>
-            <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Selecione" />
+          <div class="row">
+            <div class="col mb-3">
+              <label for="tipo" class="form-label">Tipo de Contato</label>
+              <input id="tipo" formControlName="tipo" type="text" class="form-control" placeholder="Ex: WhatsApp, Trabalho, Pessoal" />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col mb-3">
-            <label for="logradouro" class="form-label">Contato</label>
-            <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Contato" />
+
+          <div class="row">
+            <div class="col mb-3">
+              <label for="contato" class="form-label">Contato</label>
+              <input id="contato" formControlName="contato" type="text" class="form-control" placeholder="Informe o contato (email ou telefone)" />
+            </div>
           </div>
+
         </div>
-      </div>
+
         <div class="card-footer">
           <button type="submit" class="btn btn-primary">Confirmar</button>
-          <button type="button" class="btn">Cancelar</button>
+          <button type="button" class="btn btn-secondary" routerLink="">Cancelar</button>
         </div>
       </form>
+
     </div>
   </div>
 

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PessoaService } from 'src/app/service/pessoa.service';
-import { ViaCepService } from 'src/app/service/viacep.service';  // Importando o serviço ViaCep
+import { ViaCepService } from 'src/app/service/viacep.service';
 import { IPessoa } from 'src/app/interfaces/pessoa';
-import { Endereco } from 'src/app/interfaces/endereco';  // Definindo o tipo Endereco
-
+import { Endereco } from 'src/app/interfaces/endereco';
 @Component({
   selector: 'app-editar-pessoa',
   templateUrl: './editar-pessoa.component.html',

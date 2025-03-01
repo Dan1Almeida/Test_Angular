@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IPessoa } from 'src/app/interfaces/pessoa';
 import { PessoaService } from 'src/app/service/pessoa.service';
@@ -11,45 +11,44 @@ import { PessoaService } from 'src/app/service/pessoa.service';
 })
 export class ListarPessoaComponent implements OnInit{
   pessoas: IPessoa[] = [];
+  pessoasComCelular: IPessoa[] = [];
+  formFiltro: FormGroup;
 
-  formFiltro: FormGroup = new FormGroup({
-    nome: new FormControl(''),
-    cidade: new FormControl('')
-  });
-
-  constructor(
-    private readonly pessoaService: PessoaService,
-    private readonly router: Router
-  ) { }
+  constructor(private pessoaService: PessoaService, private fb: FormBuilder) {
+    this.formFiltro = this.fb.group({
+      nome: [''],
+      cidade: ['']
+    });
+  }
 
   ngOnInit(): void {
-    this.carregarPessoas();
-  }
-
-  carregarPessoas() {
-    this.pessoaService.listarPessoas().subscribe({
-      next: (dados: IPessoa[]) => {
-        this.pessoas = dados;
-      },
-      error: (erro: any) => {
-        console.error('Erro ao carregar pessoas:', erro);
-      }
+    this.pessoaService.listarPessoas().subscribe((pessoas: IPessoa[]) => {
+      this.pessoas = pessoas;
+      this.filtrarPessoas();
     });
   }
 
-  filtrarPessoas() {
+  filtrarPessoas(): void {
     const { nome, cidade } = this.formFiltro.value;
-    this.pessoaService.listarPessoas().subscribe({
-      next: (dados) => {
-        this.pessoas = dados.filter(pessoa =>
-          (nome ? pessoa.nome.toLowerCase().includes(nome.toLowerCase()) : true) &&
-          (cidade ? pessoa.cidade.toLowerCase().includes(cidade.toLowerCase()) : true)
-        );
-      },
-      error: (erro) => {
-        console.error('Erro ao filtrar pessoas:', erro);
-      }
+    this.pessoasComCelular = this.pessoas.filter(pessoa => {
+      return (
+        (!nome || pessoa.nome.includes(nome)) &&
+        (!cidade || pessoa.cidade.includes(cidade)) &&
+        pessoa.contatos.some(contato => contato.celular)
+      );
     });
   }
 
-}
+  obterCelular(pessoa: IPessoa): string {
+    const contatoComCelular = pessoa.contatos.find(contato => contato.celular);
+    return contatoComCelular ? contatoComCelular.celular : 'Não informado';
+  }
+
+  editarPessoa(id: number): void {
+    console.log(`Editar pessoa com ID: ${id}`);
+  }
+
+
+  }
+
+
