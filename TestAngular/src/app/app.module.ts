@@ -13,6 +13,7 @@ import { EditarPessoaComponent } from './pages/pessoas/editar-pessoa/editar-pess
 import { ListarPessoaComponent } from './pages/pessoas/listar-pessoa/listar-pessoa.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CadastrarContatoComponent } from './pages/contatos/cadastrar-contato/cadastrar-contato.component';
+import { TabelaComponent } from './components/tabela/tabela.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CadastrarContatoComponent } from './pages/contatos/cadastrar-contato/ca
     CadastrarPessoaComponent,
     EditarPessoaComponent,
     ListarPessoaComponent,
-    CadastrarContatoComponent
+    CadastrarContatoComponent,
+    TabelaComponent
   ],
   imports: [
     BrowserModule,

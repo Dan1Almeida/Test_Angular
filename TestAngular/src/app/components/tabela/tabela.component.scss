@@ -1,0 +1,129 @@
+@import "src/styles.scss";
+
+
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $Bg_Branco;
+
+  thead {
+    background-color: $Bg_Cinza;
+    color: $Bg_Branco;
+    text-transform: uppercase;
+
+    tr {
+      th {
+        padding: 12px;
+        text-align: left;
+        font-weight: bold;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid lighten($Bg_Cinza, 20%);
+
+      &:nth-child(even) {
+        background-color: lighten($Bg_Cinza, 45%);
+      }
+
+      &:hover {
+        background-color: lighten($Bg_Cinza, 30%);
+        transition: background 0.3s ease-in-out;
+      }
+
+      td {
+        padding: 10px;
+        color: darken($Bg_Cinza, 30%);
+      }
+
+      .dropdown {
+        .btn {
+          background-color: $Font_Card;
+          color: $Bg_Branco;
+          border: none;
+          padding: 5px 10px;
+          font-size: 14px;
+
+          &:hover {
+            background-color: darken($Font_Card, 10%);
+          }
+        }
+
+        .dropdown-menu {
+          background-color: $Bg_Branco;
+          border: 1px solid $Bg_Cinza;
+
+          .dropdown-item {
+            color: $Font_DescricaoBotao;
+
+            &:hover {
+              color: $Bg_Cinza;
+            }
+
+            &.text-danger {
+              color: red;
+
+              &:hover {
+                background-color: lighten(red, 30%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsividade para telas menores
+@media (max-width: 768px) {
+  .table-container {
+    padding: 10px;
+  }
+
+  .table {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; // Esconde o cabeçalho
+  }
+
+  tbody {
+    display: flex;
+    flex-direction: column;
+
+    tr {
+      display: flex;
+      flex-direction: column;
+      background-color: lighten($Bg_Cinza, 40%);
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        font-size: 14px;
+
+        &::before {
+          content: attr(data-label);
+          font-weight: bold;
+          color: $Bg_Cinza;
+          flex: 1;
+        }
+      }
+    }
+  }
+}

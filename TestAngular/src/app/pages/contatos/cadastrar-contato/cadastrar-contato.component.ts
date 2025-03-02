@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPessoa } from 'src/app/interfaces/pessoa';
 import { PessoaService } from 'src/app/service/pessoa.service';
 import { ContatoService } from 'src/app/service/contato.service';
+import { IContato } from 'src/app/interfaces/contato';
 
 
 @Component({
@@ -27,11 +28,13 @@ export class CadastrarContatoComponent {
     });
 
     this.formGroupContato = this.fb.group({
-      celular: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
+      celular: ['', [Validators.pattern(/^\d{11}$/)]],
       tipo: [''],
       contato: [''],
     });
   }
+
+  contatos: IContato[] = [];
 
   buscarPessoa(): void {
     const id = this.formGroupPessoa.get('id')?.value;
@@ -43,13 +46,11 @@ export class CadastrarContatoComponent {
           this.pessoaEncontrada = true;
         },
         (error) => {
-          console.error('Erro ao buscar pessoa:', error);
-          alert('Pessoa não encontrada!');
+          console.error(error);
+          alert('ID Inválido');
           this.pessoaEncontrada = false;
         }
       );
-    } else {
-      alert('Informe um ID válido.');
     }
   }
 
@@ -57,24 +58,16 @@ export class CadastrarContatoComponent {
   cadastrarContato(): void {
     const pessoaId = this.formGroupPessoa.get('id')?.value;
 
-    if (!pessoaId) {
-      alert('Informe um ID de pessoa válido!');
-      return;
-    }
-
     if (this.formGroupContato.valid) {
       this.contatoService.cadastrarContato(pessoaId, this.formGroupContato.value).subscribe(
         () => {
           alert('Contato cadastrado com sucesso!');
           this.formGroupContato.reset();
-        },
-        (error) => {
-          console.error('Erro ao cadastrar contato:', error);
-          alert('Erro ao cadastrar contato.');
         }
       );
     } else {
-      alert('Preencha os campos obrigatórios.');
+      alert('Erro ao cadastrar contato.');
     }
+  }
 }
-}
+

@@ -12,6 +12,7 @@ import { Endereco } from 'src/app/interfaces/endereco';
 export class EditarPessoaComponent {
 
   formGroupPessoa: FormGroup;
+  pessoaEncontrada: boolean = false;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -20,12 +21,17 @@ export class EditarPessoaComponent {
   ) {
     this.formGroupPessoa = this.fb.group({
       id: [''],
-      nome: ['', Validators.required],
+      nome: ['', [
+        Validators.required,
+        Validators.pattern('^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$'),
+        Validators.minLength(3),
+        Validators.maxLength(100)
+      ]],
       cep: ['', [Validators.required, Validators.pattern('^[0-9]{5}-[0-9]{3}$')]],
       logradouro: ['', Validators.required],
       bairro: ['', Validators.required],
       cidade: ['', Validators.required],
-      uf: ['', Validators.required],
+      uf: ['', Validators.required]
     });
   }
 
@@ -36,14 +42,14 @@ export class EditarPessoaComponent {
       this.pessoaService.buscarPessoaPorId(id).subscribe(
         (pessoa: IPessoa) => {
           this.formGroupPessoa.patchValue(pessoa);
+          this.pessoaEncontrada = true;
         },
         (error) => {
-          console.error('Erro ao buscar pessoa:', error);
-          alert('Pessoa não encontrada!');
+          console.error(error);
+          alert('ID Inválido');
+          this.pessoaEncontrada = false;
         }
       );
-    } else {
-      alert('Informe um ID válido.');
     }
   }
 
@@ -54,7 +60,7 @@ export class EditarPessoaComponent {
     if (this.formGroupPessoa.valid) {
       this.pessoaService.editarPessoa(id, pessoa).subscribe(
         (pessoaAtualizada: IPessoa) => {
-          console.log('Pessoa atualizada com sucesso:', pessoaAtualizada);
+          console.log(pessoaAtualizada);
           alert('Cadastro atualizado com sucesso!');
         },
         (error) => {

@@ -17,12 +17,14 @@ export class CadastrarPessoaComponent {
 
   id: string = '';
   FormGroupPessoa: FormGroup = new FormGroup({
-    nome: new FormControl('', [Validators.required]),
-    cep: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{5}-[0-9]{3}$')]),
+    nome: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$'), Validators.minLength(3), Validators.maxLength(100)]),
+    cep: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{5}-[0-9]{3}$') ]),
     logradouro: new FormControl('', [Validators.required]),
     bairro: new FormControl('', [Validators.required]),
     cidade: new FormControl('', [Validators.required]),
-    uf: new FormControl('', [Validators.required]),
+    uf: new FormControl('', [Validators.required])
   });
 
   constructor(
@@ -37,16 +39,10 @@ export class CadastrarPessoaComponent {
   cadastrarPessoa() {
     const pessoa: IPessoa = this.FormGroupPessoa.value;
 
-    this.pessoaService.cadastrarPessoa(pessoa).subscribe({
-      next: (response) => {
-        console.log('Pessoa cadastrada com sucesso:', response);
-        alert('Pessoa cadastrada com sucesso!');
-        this.router.navigate(['/pessoas']);
-      },
-      error: (err) => {
-        console.error('Erro ao cadastrar pessoa:', err);
-        alert('Erro ao cadastrar pessoa. Verifique os dados e tente novamente.');
-      }
+    this.pessoaService.cadastrarPessoa(pessoa).subscribe(response => {
+      console.log(response);
+      alert('Pessoa cadastrada com sucesso!');
+      this.router.navigate(['']);
     });
   }
 
@@ -64,7 +60,7 @@ export class CadastrarPessoaComponent {
               uf: endereco.uf,
             });
           } else {
-            alert('Dados do endereço não encontrados.');
+            alert('Endereço não encontrados no VIACEP.');
           }
         },
       });
