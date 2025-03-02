@@ -1,129 +1,113 @@
 @import "src/styles.scss";
 
 
-.table-container {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-.table {
+table {
   width: 100%;
   border-collapse: collapse;
-  background-color: $Bg_Branco;
 
-  thead {
+  th, td {
+    font-family: var(--font-Corpo);
+    color: $Font_DescricaoBotao;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    color: $Font_Branco;
     background-color: $Bg_Cinza;
-    color: $Bg_Branco;
-    text-transform: uppercase;
+    text-align: center;
+  }
 
-    tr {
-      th {
-        padding: 12px;
-        text-align: left;
-        font-weight: bold;
-      }
+  tbody tr:nth-child(odd) {
+    background-color: $Bg_Branco;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: darken($Bg_Branco, 20%);
+  }
+
+  .dropdown-toggle {
+    background-color: $Font_DescricaoBotao;
+    color: $Font_Branco;
+    border: none;
+
+    &:hover {
+      background-color: darken($Font_DescricaoBotao, 10%);
     }
   }
 
-  tbody {
-    tr {
-      border-bottom: 1px solid lighten($Bg_Cinza, 20%);
+  .dropdown-menu {
+    background-color: $Bg_Cinza;
+    color: $Font_Branco;
 
-      &:nth-child(even) {
-        background-color: lighten($Bg_Cinza, 45%);
-      }
+    .dropdown-item {
+      color: $Font_Branco;
 
       &:hover {
-        background-color: lighten($Bg_Cinza, 30%);
-        transition: background 0.3s ease-in-out;
-      }
-
-      td {
-        padding: 10px;
-        color: darken($Bg_Cinza, 30%);
-      }
-
-      .dropdown {
-        .btn {
-          background-color: $Font_Card;
-          color: $Bg_Branco;
-          border: none;
-          padding: 5px 10px;
-          font-size: 14px;
-
-          &:hover {
-            background-color: darken($Font_Card, 10%);
-          }
-        }
-
-        .dropdown-menu {
-          background-color: $Bg_Branco;
-          border: 1px solid $Bg_Cinza;
-
-          .dropdown-item {
-            color: $Font_DescricaoBotao;
-
-            &:hover {
-              color: $Bg_Cinza;
-            }
-
-            &.text-danger {
-              color: red;
-
-              &:hover {
-                background-color: lighten(red, 30%);
-              }
-            }
-          }
-        }
+        background-color: #007bff;
+        color: white;
       }
     }
   }
-}
 
-// Responsividade para telas menores
-@media (max-width: 768px) {
-  .table-container {
-    padding: 10px;
-  }
+  @media (max-width: 768px) {
+    table {
+      font-size: 12px;
+    }
 
-  .table {
-    display: block;
-    width: 100%;
-  }
+    th, td {
+      padding: 8px;
+    }
 
-  thead {
-    display: none; // Esconde o cabeçalho
-  }
+    .dropdown-toggle {
+      padding: 5px 10px;
+    }
 
-  tbody {
-    display: flex;
-    flex-direction: column;
+    .dropdown-menu {
+      font-size: 12px;
+    }
 
-    tr {
-      display: flex;
-      flex-direction: column;
-      background-color: lighten($Bg_Cinza, 40%);
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 8px;
 
-      td {
-        display: flex;
-        justify-content: space-between;
-        padding: 5px 0;
-        font-size: 14px;
+    th:nth-child(5), td:nth-child(5),
+    th:nth-child(6), td:nth-child(6),
+    th:nth-child(7), td:nth-child(7)
+    {
+      display: none;
+    }
 
-        &::before {
-          content: attr(data-label);
-          font-weight: bold;
-          color: $Bg_Cinza;
-          flex: 1;
-        }
-      }
+
+    .table-responsive {
+      overflow-x: auto;
     }
   }
+
+
+  @media (max-width: 480px) {
+    table {
+      font-size: 10px;
+    }
+
+    th, td {
+      padding: 6px;
+    }
+
+
+    th:nth-child(4), td:nth-child(4),
+    th:nth-child(8), td:nth-child(8)
+    {
+      display: none;
+    }
+
+
+    .dropdown-menu {
+      font-size: 10px;
+      min-width: 150px;
+    }
+  }
+
 }
+
+
+

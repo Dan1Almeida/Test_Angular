@@ -35,7 +35,6 @@ export class CadastrarPessoaComponent {
   ) { }
 
 
-
   cadastrarPessoa() {
     const pessoa: IPessoa = this.FormGroupPessoa.value;
 

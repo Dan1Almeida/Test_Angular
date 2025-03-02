@@ -4,6 +4,8 @@ import { PessoaService } from 'src/app/service/pessoa.service';
 import { ViaCepService } from 'src/app/service/viacep.service';
 import { IPessoa } from 'src/app/interfaces/pessoa';
 import { Endereco } from 'src/app/interfaces/endereco';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-editar-pessoa',
   templateUrl: './editar-pessoa.component.html',
@@ -11,15 +13,16 @@ import { Endereco } from 'src/app/interfaces/endereco';
 })
 export class EditarPessoaComponent {
 
-  formGroupPessoa: FormGroup;
+  FormGroupPessoa: FormGroup;
   pessoaEncontrada: boolean = false;
 
   constructor(
     private readonly fb: FormBuilder,
     private readonly pessoaService: PessoaService,
-    private readonly viaCepService: ViaCepService
+    private readonly viaCepService: ViaCepService,
+    private readonly router: Router,
   ) {
-    this.formGroupPessoa = this.fb.group({
+    this.FormGroupPessoa = this.fb.group({
       id: [''],
       nome: ['', [Validators.required, Validators.pattern('^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$'),
         Validators.minLength(3),
@@ -34,60 +37,53 @@ export class EditarPessoaComponent {
   }
 
   buscarPessoa(): void {
-    const id = this.formGroupPessoa.get('id')?.value;
+    const id = this.FormGroupPessoa.get('id')?.value;
 
     if (id) {
-      this.pessoaService.buscarPessoaPorId(id).subscribe(
-        (pessoa: IPessoa) => {
-          this.formGroupPessoa.patchValue(pessoa);
+      this.pessoaService.buscarPessoaPorId(id).subscribe({
+        next: (pessoa: IPessoa) => {
+          this.FormGroupPessoa.patchValue(pessoa);
           this.pessoaEncontrada = true;
         },
-        (error) => {
+        error: (error) => {
           console.error(error);
           alert('ID Inválido | Pessoa não Encontrada');
           this.pessoaEncontrada = false;
         }
-      );
+      });
     }
   }
 
   editarPessoa(): void {
-    const id = this.formGroupPessoa.get('id')?.value;
-    const pessoa: IPessoa = this.formGroupPessoa.value;
+    const id = this.FormGroupPessoa.get('id')?.value;
+    const pessoa: IPessoa = this.FormGroupPessoa.value;
 
-    if (this.formGroupPessoa.valid) {
-      this.pessoaService.editarPessoa(id, pessoa).subscribe(
-        (pessoaAtualizada: IPessoa) => {
-          console.log(pessoaAtualizada);
+    if (this.FormGroupPessoa.valid && id) {
+      this.pessoaService.editarPessoa(id, pessoa).subscribe(response => {
+          console.log(response);
           alert('Cadastro atualizado com sucesso!');
-        },
-        (error) => {
-          console.error(error);
-          alert('Erro ao atualizar pessoa. Tente novamente.');
-        }
-      );
+          this.router.navigate(['']);
+        });
     }
   }
 
   buscarEndereco() {
-    const cep = this.formGroupPessoa.get('cep')?.value;
+    const cep = this.FormGroupPessoa.get('cep')?.value;
     if (cep && cep.length === 9) {
       this.viaCepService.buscarEnderecoPorCep(cep).subscribe({
         next: (endereco: Endereco) => {
           if (endereco?.logradouro && endereco?.bairro && endereco?.localidade && endereco?.uf) {
-            this.formGroupPessoa.patchValue({
+            this.FormGroupPessoa.patchValue({
               logradouro: endereco.logradouro,
               bairro: endereco.bairro,
               cidade: endereco.localidade,
               uf: endereco.uf,
             });
           } else {
-            alert('Dados do endereço não encontrados.');
+            alert('Endereço não encontrados no VIACEP.');
           }
         },
       });
     }
   }
-
-
 }

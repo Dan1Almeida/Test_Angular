@@ -14,7 +14,10 @@ export class ListarPessoaComponent implements OnInit{
     pessoasComCelular: IPessoa[] = [];
     formFiltro: FormGroup;
 
-    constructor(private pessoaService: PessoaService, private fb: FormBuilder, private router: Router) {
+    constructor(
+      private readonly pessoaService: PessoaService,
+      private readonly fb: FormBuilder,
+      private readonly router: Router) {
       this.formFiltro = this.fb.group({
         nome: [''],
         cidade: ['']

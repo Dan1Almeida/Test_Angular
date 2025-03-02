@@ -13,17 +13,27 @@
         <h3>Pesquisar ID</h3>
       </div>
       <div class="card-body">
-        <form [formGroup]="formGroupPessoa" (ngSubmit)="buscarPessoa()">
+        <form [formGroup]="FormGroupPessoa" (ngSubmit)="buscarPessoa()">
           <div class="d-flex justify-content-between mb-3">
-            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID da Pessoa a ser cadasatrada" />
-            <button type="button" class="btn ms-2" (click)="buscarPessoa()">Pesquisar</button>
+            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID da Pessoa a ser cadastrada" />
+            <button type="button" class="btn ms-2" [disabled]="FormGroupPessoa.invalid" (click)="buscarPessoa()">Pesquisar</button>
+          </div>
+
+          <div *ngIf="FormGroupPessoa.get('id')?.invalid && FormGroupPessoa.get('id')?.touched" class="text-danger">
+
+            <small *ngIf="FormGroupPessoa.get('id')?.hasError('min')">
+              Formato inválido.
+            </small>
+            <small *ngIf="FormGroupPessoa.get('id')?.hasError('pattern')">
+              Formato inválido.
+            </small>
           </div>
 
           <div>
             <label for="nome" class="form-label contato">Pessoa</label>
-            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome Completo" readonly/>
+            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome Completo" readonly />
           </div>
-      </form>
+        </form>
       </div>
       <div class="card-footer">
 
@@ -36,18 +46,21 @@
       <div class="card-header">
         <h3>Formulário de Contato</h3>
       </div>
-      <form [formGroup]="formGroupContato" (ngSubmit)="cadastrarContato()">
+      <form [formGroup]="FormGroupContato" (ngSubmit)="cadastrarContato()">
         <div class="card-body">
 
           <div class="row">
             <div class="col mb-3">
-              <label for="celular" class="form-label">Celular
-                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="(01) 01010-0101">
+              <label for="celular" class="form-label">
+                Celular
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Formato: (99) 99999-9999">
                   <i class="fa-solid fa-circle-info"></i>
                 </button>
               </label>
-              <input id="celular" formControlName="celular" type="text" class="form-control"
-                placeholder="Digite o número do celular" />
+              <input id="celular" formControlName="celular" type="text" class="form-control" placeholder="Celular" />
+              <div *ngIf="FormGroupContato.get('celular')?.invalid && FormGroupContato.get('celular')?.touched" class="text-danger">
+                <small>Formato Inválido | Ex: (01) 90101-0101 </small>
+              </div>
             </div>
           </div>
 
@@ -71,18 +84,16 @@
             <div class="col mb-3">
               <label for="contato" class="form-label">Contato</label>
               <input id="contato" formControlName="contato" type="text" class="form-control" [placeholder]="getPlaceholder()" />
-
-              <div *ngIf="formGroupContato.get('contato')?.invalid && formGroupContato.get('contato')?.touched">
-                <small class="text-danger" *ngIf="formGroupContato.get('contato')?.hasError('email')">
-                  Formato de e-mail inválido.
-                </small>
-                <small class="text-danger" *ngIf="formGroupContato.get('contato')?.hasError('pattern')">
+              <div *ngIf="FormGroupContato.get('contato')?.invalid && FormGroupContato.get('contato')?.touched">
+                <small class="text-danger" *ngIf="FormGroupContato.get('contato')?.hasError('pattern')">
                   Formato inválido.
+                </small>
+                <small class="text-danger" *ngIf="FormGroupContato.get('contato')?.hasError('email')">
+                  E-mail inválido.
                 </small>
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="card-footer">

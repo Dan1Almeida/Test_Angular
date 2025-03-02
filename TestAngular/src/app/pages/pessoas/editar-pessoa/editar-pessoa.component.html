@@ -12,7 +12,7 @@
         <h3>Pesquisar ID</h3>
       </div>
       <div class="card-body">
-        <form [formGroup]="formGroupPessoa" (ngSubmit)="buscarPessoa()">
+        <form [formGroup]="FormGroupPessoa" (ngSubmit)="buscarPessoa()">
           <div class="d-flex justify-content-between">
             <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID Para Edição" />
             <button type="button" class="btn ms-2" (click)="buscarPessoa()">Pesquisar</button>
@@ -30,7 +30,7 @@
       <div class="card-header">
         <h3>Formulário de Edição</h3>
       </div>
-      <form [formGroup]="formGroupPessoa" (ngSubmit)="editarPessoa()">
+      <form [formGroup]="FormGroupPessoa" (ngSubmit)="editarPessoa()">
         <div class="card-body">
           <div class="row">
             <div class="col-md-8 mb-3">
@@ -40,8 +40,8 @@
                 </button>
               </label>
               <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome Completo" />
-              <div *ngIf="formGroupPessoa.get('nome')?.invalid && formGroupPessoa.get('nome')?.touched" class="text-danger">
-                <small>Nome inserido de forma incorreta.</small>
+              <div *ngIf="FormGroupPessoa.get('nome')?.invalid && FormGroupPessoa.get('nome')?.touched" class="text-danger">
+                <small>Formato inválido. | Ex: João Pessoa</small>
               </div>
             </div>
             <div class="col-md-4 mb-3">
@@ -51,8 +51,8 @@
                 </button>
               </label>
               <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
-              <div *ngIf="formGroupPessoa.get('cep')?.invalid && formGroupPessoa.get('cep')?.touched" class="text-danger">
-                <small>CEP inserido de forma incorreta.</small>
+              <div *ngIf="FormGroupPessoa.get('cep')?.invalid && FormGroupPessoa.get('cep')?.touched" class="text-danger">
+                <small>Formato inválido. | Ex: 01010-010</small>
               </div>
             </div>
           </div>
@@ -94,7 +94,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <button type="submit" class="btn btn-primary" [disabled]="formGroupPessoa.invalid">Confirmar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="FormGroupPessoa.invalid">Confirmar</button>
           <button type="button" class="btn" routerLink="">Cancelar</button>
         </div>
       </form>

@@ -24,9 +24,10 @@
               </label>
               <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome Completo" />
               <div *ngIf="FormGroupPessoa.get('nome')?.invalid && FormGroupPessoa.get('nome')?.touched" class="text-danger">
-                <small>Nome inserido de forma incorreta.</small>
+                <small>Formato inválido. | Ex: João Pessoa</small>
               </div>
             </div>
+
             <div class="col-md-4 mb-3">
               <label for="cep" class="form-label">CEP
                 <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Exemplo: 05805-000">
@@ -35,9 +36,10 @@
               </label>
               <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
               <div *ngIf="FormGroupPessoa.get('cep')?.invalid && FormGroupPessoa.get('cep')?.touched" class="text-danger">
-                <small>CEP inserido de forma incorreta.</small>
+                <small>Formato inválido | Ex: 05802-140</small>
               </div>
             </div>
+
           </div>
           <div class="row">
             <div class="col mb-3">

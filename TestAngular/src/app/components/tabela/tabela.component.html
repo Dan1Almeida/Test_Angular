@@ -1,6 +1,6 @@
-<table class="table table-striped">
+<table class="table-responsive">
   <thead>
-    <tr class="header">
+    <tr class="card-header">
       <th>ID</th>
       <th>Nome</th>
       <th>Logradouro</th>
@@ -37,7 +37,7 @@
 
       <td>
         <div class="dropdown">
-          <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
             Opções
           </button>
           <ul class="dropdown-menu">
@@ -45,7 +45,7 @@
               <a class="dropdown-item" (click)="editarPessoa(pessoa.id)">Editar</a>
             </li>
             <li>
-              <a class="dropdown-item text-danger" (click)="deletarPessoa(pessoa.id)">Excluir</a>
+              <a class="dropdown-item" (click)="deletarPessoa(pessoa.id)">Excluir</a>
             </li>
           </ul>
         </div>

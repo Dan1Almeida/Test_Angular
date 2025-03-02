@@ -4,6 +4,8 @@ import { IPessoa } from 'src/app/interfaces/pessoa';
 import { PessoaService } from 'src/app/service/pessoa.service';
 import { ContatoService } from 'src/app/service/contato.service';
 import { IContato } from 'src/app/interfaces/contato';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,29 +14,31 @@ import { IContato } from 'src/app/interfaces/contato';
   styleUrls: ['./cadastrar-contato.component.scss']
 })
 export class CadastrarContatoComponent {
-  formGroupPessoa: FormGroup;
-  formGroupContato: FormGroup;
+  FormGroupPessoa: FormGroup;
+  FormGroupContato: FormGroup;
   pessoaEncontrada: boolean = false;
+  contatos: IContato[] = [];
 
   constructor(
     private readonly fb: FormBuilder,
     private readonly pessoaService: PessoaService,
-    private readonly contatoService: ContatoService
+    private readonly contatoService: ContatoService,
+    private readonly router: Router,
   ) {
 
-    this.formGroupPessoa = this.fb.group({
-      id: ['', Validators.required],
-      nome: ['', Validators.required],
+    this.FormGroupPessoa = this.fb.group({
+      id: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.min(1)]],
+      nome: [''],
     });
 
-    this.formGroupContato = this.fb.group({
+    this.FormGroupContato = this.fb.group({
       celular: ['', [Validators.pattern(/^\(\d{2}\) 9\d{4}-\d{4}$/)]],
       tipo: [''],
       contato: [''],
     });
 
-    this.formGroupContato.get('tipo')?.valueChanges.subscribe((tipoSelecionado) => {
-      const contatoControl = this.formGroupContato.get('contato');
+    this.FormGroupContato.get('tipo')?.valueChanges.subscribe((tipoSelecionado) => {
+      const contatoControl = this.FormGroupContato.get('contato');
 
       if (contatoControl) {
         contatoControl.clearValidators();
@@ -62,58 +66,55 @@ export class CadastrarContatoComponent {
 
   tiposContato = [
     { label: 'Telefone Residencial', value: 'residencial' },
-    { label: 'Telefone Profisional', value: 'profisional' },
+    { label: 'Telefone Profissional', value: 'profissional' },
     { label: 'E-mail', value: 'email' },
     { label: 'Social', value: 'social' },
   ];
 
   getPlaceholder(): string {
-    const tipo = this.formGroupContato.get('tipo')?.value;
+    const tipo = this.FormGroupContato.get('tipo')?.value;
     switch (tipo) {
       case 'residencial': return 'Exemplo: (01) 0101-0101';
-      case 'profisional': return 'Exemplo: (01) 90101-0101';
+      case 'profissional': return 'Exemplo: (01) 90101-0101';
       case 'email': return 'Exemplo: teste@teste.com';
       case 'social': return 'Exemplo: Teste@Teste.com';
       default: return 'Contato';
     }
   }
 
-  contatos: IContato[] = [];
 
   buscarPessoa(): void {
-    const id = this.formGroupPessoa.get('id')?.value;
+    const id = this.FormGroupPessoa.get('id')?.value;
 
     if (id) {
-      this.pessoaService.buscarPessoaPorId(id).subscribe(
-        (pessoa: IPessoa) => {
-          this.formGroupPessoa.patchValue(pessoa);
+      this.pessoaService.buscarPessoaPorId(id).subscribe({
+        next: (pessoa: IPessoa) => {
+          this.FormGroupPessoa.patchValue(pessoa);
           this.pessoaEncontrada = true;
         },
-        (error) => {
+        error: (error) => {
           console.error(error);
-          alert('ID Inválido | Pessoa não Encontrada');
+          alert('Pessoa não Encontrada');
           this.pessoaEncontrada = false;
         }
-      );
+      });
     }
   }
 
 
   cadastrarContato(): void {
-    const pessoaId = this.formGroupPessoa.get('id')?.value;
+    const pessoaId = this.FormGroupPessoa.get('id')?.value;
 
-    if (this.formGroupContato.valid) {
-      this.contatoService.cadastrarContato(pessoaId, this.formGroupContato.value).subscribe(
-        () => {
-          alert('Contato cadastrado com sucesso!');
-          this.formGroupContato.reset();
-        }
-      );
+    if (this.FormGroupContato.valid) {
+      this.contatoService.cadastrarContato(pessoaId, this.FormGroupContato.value).subscribe(response =>{
+        console.log(response);
+        alert('Contato cadastrado com sucesso!');
+        this.FormGroupContato.reset();
+        this.router.navigate(['']);
+      });
     } else {
       alert('Erro ao cadastrar contato.');
     }
   }
-
-
 }
 

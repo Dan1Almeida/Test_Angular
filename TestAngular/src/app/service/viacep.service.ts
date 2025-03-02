@@ -8,9 +8,9 @@ import { Endereco } from '../interfaces/endereco';
   providedIn: 'root',
 })
 export class ViaCepService {
-  private baseUrl: string = 'https://viacep.com.br/ws';
+  private readonly baseUrl: string = 'https://viacep.com.br/ws';
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   buscarEnderecoPorCep(cep: string): Observable<Endereco>  {
     const url = `${this.baseUrl}/${cep}/json/`;
