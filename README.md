@@ -38,9 +38,12 @@ Package                      Version
 
 - Em seguida, habilite e acesse o localhost:4200, responsável por executar a aplicação Angular, que está na pasta TestAngular.
 
-## Objetivos Primários
+## Resultados e Observações gerais
+> Este projeto tem como principal objetivo testar conhecimentos em Angular utilizando um CRUD e seu funcionamento como parâmetro. O projeto se encontra com os seguintes _Status_:
 
-:white_check_mark: Criar uma aplicação completa que permita listar, cadastrar, editar e excluir **Pessoas**, seguindo boas práticas e padrões recomendados.
+### Objetivos Primários
+
+:white_check_mark: Desenvolver uma aplicação completa que permita listar, cadastrar, editar e excluir Pessoas, seguindo boas práticas e padrões recomendados.
 
 :white_check_mark: Criar uma página de Cadastro de Pessoas.
 
@@ -48,21 +51,24 @@ Package                      Version
 
 :white_check_mark: Criar uma página de Listagem de Pessoas buscando os dados da API.
 
-	- Necessário ter botão Editar: Encaminha para a página de edição.
- 	- Necessário ter Botão Excluir: Exibe uma confirmação, caso o usuário confirme, realizar a remoção.
-	- Uma coluna com os números de celular.
+:white_check_mark: Incluir um botão Editar, que redireciona para a página de edição.
+
+:white_check_mark: Incluir um botão Excluir, que exibe uma confirmação antes de remover o registro.
+
+:white_check_mark: Adicionar uma coluna para exibir os números de celular.
  
-:white_check_mark: Utilizar a API https://viacep.com.br/
+:white_check_mark:Integrar com a API ViaCEP para preenchimento automático de endereços.
 
-:white_check_mark: Objetos tipados com interface.
+:white_check_mark: Definir objetos tipados utilizando interfaces.
 
-:white_check_mark: Validações necessárias para atributos.
+:white_check_mark: Implementar validações necessárias para os atributos.
 
-:white_check_mark: Componente tabela recebe Array como @input.
+:white_check_mark: O componente de tabela deve receber um Array como `<@Input>`.
 
-## Objetivos Extras
+### Objetivos Extras
 
 :white_check_mark: Projeto desenvolvido para uma experiência controlada, evitando resultados inesperados por parte dos usuários.
+
 :white_check_mark: Responsividade em telas menores.
 
 :white_check_mark: Interface limpa e com usabilidade intuitiva.
@@ -75,9 +81,17 @@ Package                      Version
 
 :white_check_mark: Filtros na página de listagem.
 
-## Informações importantes 
+### Observações gerais
 
-- Este projeto foi desenvolvido principalmente para a aplicação de conhecimentos em Angular. Dessa forma, todas as validações, ligações entre componentes e demais funcionalidades estão centralizadas no Angular. O backend, denominado AppAngular, é uma API simplificada baseada no projeto CRUD_JAVA, servindo apenas para fornecer os endpoints e gerenciar o cadastro no banco de dados H2.
+- Projeto iniciado em **23 de fevereiro de 2025** | Última modificação em **02 de Março de 2025**.
+
+- Utilizado como referência inicial o projeto **ecommerce-jps-2025-angular** desenvolvido em aula pelo professor Rafael Ferreira.
+  
+```
+https://github.com/rafaelblink/ecommerce-jps-2025-angular
+```  
+
+- Este projeto foi desenvolvido principalmente para a aplicação de conhecimentos em Angular. Dessa forma, todas as validações, ligações entre componentes e demais funcionalidades estão centralizadas no Angular. O backend, denominado AppAngular, é uma API simplificada baseada no projeto [CRUD_JAVA](https://github.com/Dan1Almeida/CRUD_JAVA/), servindo apenas para fornecer os endpoints e gerenciar o cadastro no banco de dados H2.
 
 
  
