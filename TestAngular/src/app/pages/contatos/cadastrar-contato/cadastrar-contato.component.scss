@@ -3,20 +3,10 @@
 
 .card-container {
   justify-content: center;
-
-
-  @media (max-width: 960px) {
-      padding: 15px;
-  }
-
-  @media (max-width: 480px) {
-
-    padding: 10px;
-  }
 }
 
 .card {
-  width: 40%;
+  width: 45%;
 
   @media (max-width: 760px) {
     width: 80%;
@@ -28,16 +18,4 @@
 }
 
 
-.dropdown-menu {
-  background-color: $Bg_Cinza;
-  color: $Font_Branco;
 
-  .dropdown-item {
-    color: $Font_Branco;
-
-    &:hover {
-      background-color: $Font_Acendente;
-      color: white;
-    }
-  }
-}

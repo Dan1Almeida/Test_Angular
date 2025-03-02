@@ -5,6 +5,7 @@ import { ViaCepService } from 'src/app/service/viacep.service';
 import { IPessoa } from 'src/app/interfaces/pessoa';
 import { Endereco } from 'src/app/interfaces/endereco';
 import {Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-editar-pessoa',
   templateUrl: './editar-pessoa.component.html',
@@ -50,7 +51,21 @@ export class EditarPessoaComponent {
         },
         error: (error) => {
           console.error(error);
-          alert('Pessoa não Encontrada');
+const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Pessoa não encontrada"
+          });
           this.pessoaEncontrada = false;
         }
       });
@@ -64,7 +79,21 @@ export class EditarPessoaComponent {
     if (this.FormGroupPessoa.valid && id) {
       this.pessoaService.editarPessoa(id, pessoa).subscribe(response => {
           console.log(response);
-          alert('Cadastro atualizado com sucesso!');
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Pessoa atualizada com sucesso"
+          });
           this.router.navigate(['']);
         });
     } else {

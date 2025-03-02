@@ -88,7 +88,7 @@
                   Formato inválido.
                 </small>
                 <small class="text-danger" *ngIf="FormGroupContato.get('contato')?.hasError('email')">
-                  E-mail inválido.
+                  Formato inválido.
                 </small>
               </div>
             </div>
@@ -98,7 +98,8 @@
         <div class="card-footer">
 
           <div class="dropdown">
-            <button type="submit" class="btn btn-primary">Confirmar</button>
+            <button type="submit" [disabled]="!ValidaBotao()" class="btn btn-primary">Confirmar</button>
+
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownReset" data-bs-toggle="dropdown" aria-expanded="false">
               Reiniciar
             </button>

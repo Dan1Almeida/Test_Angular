@@ -5,6 +5,7 @@ import { PessoaService } from 'src/app/service/pessoa.service';
 import { ContatoService } from 'src/app/service/contato.service';
 import { IContato } from 'src/app/interfaces/contato';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 
@@ -94,7 +95,21 @@ export class CadastrarContatoComponent {
         },
         error: (error) => {
           console.error(error);
-          alert('Pessoa não Encontrada');
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Pessoa não encontrada"
+          });
           this.pessoaEncontrada = false;
         }
       });
@@ -108,12 +123,24 @@ export class CadastrarContatoComponent {
     if (this.FormGroupContato.valid) {
       this.contatoService.cadastrarContato(pessoaId, this.FormGroupContato.value).subscribe(response =>{
         console.log(response);
-        alert('Contato cadastrado com sucesso!');
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Contato cadastrado com sucesso"
+          });
         this.FormGroupContato.reset();
         this.router.navigate(['']);
       });
-    } else {
-      alert('Erro ao cadastrar contato.');
     }
   }
 
@@ -124,6 +151,13 @@ export class CadastrarContatoComponent {
 
   limparFormularioContato() {
     this.FormGroupContato.reset();
+  }
+
+  ValidaBotao(): boolean {
+    const celular = this.FormGroupContato.get('celular');
+    const contato = this.FormGroupContato.get('contato');
+
+    return (celular?.valid && celular.value) || (contato?.valid && contato.value);
   }
 
 }

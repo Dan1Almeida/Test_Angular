@@ -1,0 +1,43 @@
+.card-container {
+  display: flex;
+  padding-top: 10px;
+
+  .card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .card-header {
+      color: $Font_Branco;
+      background-color: $Bg_Cinza;
+      padding: 15px;
+      text-align: center;
+
+      h3 {
+        margin: 0;
+        font-size: 1.3rem;
+      }
+    }
+
+    .card-body {
+      font-size: 1rem;
+      color: $Font_DescricaoBotao;
+      font-family: var(--font-Corpo);
+      background-color: $Font_Branco;
+
+      .form-label {
+        font-weight: bold;
+      }
+    }
+
+    .card-footer {
+      padding: 15px;
+      text-align: center;
+      background-color: darken($Bg_Branco, 5%);
+
+      .btn-primary{
+        margin-right: 15px;
+      }
+
+    }
+  }
+}

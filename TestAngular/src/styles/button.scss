@@ -1,0 +1,63 @@
+// -------- PRINCIPAL
+
+.btn {
+  background-color: $Font_DescricaoBotao;
+  border: none;
+  color: $Font_Branco;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($Font_DescricaoBotao, 5%);
+  }
+}
+
+
+
+// ------- ICONE --------> CADASTRO DE PESSOA, EDIÇÃO E CADASTRO DE CONTATO
+
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  color: $Font_DescricaoBotao;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($Font_DescricaoBotao, 10%);
+  }
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+
+// -------- DROPDOWN   -------> LISTA E CADASTRO DE CONTATOS
+
+
+.dropdown-toggle {
+  background-color: $Font_DescricaoBotao;
+  color: $Font_Branco;
+  border: none;
+
+  &:hover {
+    background-color: darken($Font_DescricaoBotao, 10%);
+  }
+}
+
+.dropdown-menu {
+  background-color: $Bg_Cinza;
+  color: $Font_Branco;
+
+  .dropdown-item {
+    color: $Font_Branco;
+
+    &:hover {
+      background-color: $Font_Acendente;
+    }
+  }
+}

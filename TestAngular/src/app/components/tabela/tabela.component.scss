@@ -28,27 +28,7 @@ table {
     background-color: darken($Bg_Branco, 20%);
   }
 
-  .dropdown-toggle {
-    background-color: $Font_DescricaoBotao;
-    color: $Font_Branco;
-    border: none;
 
-    &:hover {
-      background-color: darken($Font_DescricaoBotao, 10%);
-    }
-  }
-
-  .dropdown-menu {
-    background-color: $Bg_Cinza;
-    color: $Font_Branco;
-
-    .dropdown-item {
-      color: $Font_Branco;
-
-      &:hover {
-        background-color: $Font_Acendente;
-      }
-    }
   }
 
   @media (max-width: 768px) {
@@ -106,7 +86,7 @@ table {
     }
   }
 
-}
+
 
 
 

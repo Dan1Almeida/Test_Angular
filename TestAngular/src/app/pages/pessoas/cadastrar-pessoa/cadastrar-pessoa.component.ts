@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IPessoa } from 'src/app/interfaces/pessoa';
 import { ViaCepService } from 'src/app/service/viacep.service';
 import { Endereco } from 'src/app/interfaces/endereco';
+import Swal from 'sweetalert2';
+
 
 
 
@@ -40,7 +42,21 @@ export class CadastrarPessoaComponent {
 
     this.pessoaService.cadastrarPessoa(pessoa).subscribe(response => {
       console.log(response);
-      alert('Pessoa cadastrada com sucesso!');
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Cadastro realizado com sucesso"
+      });
       this.router.navigate(['']);
     });
   }
