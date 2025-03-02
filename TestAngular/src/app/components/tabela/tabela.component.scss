@@ -46,8 +46,7 @@ table {
       color: $Font_Branco;
 
       &:hover {
-        background-color: #007bff;
-        color: white;
+        background-color: $Font_Acendente;
       }
     }
   }

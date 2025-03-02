@@ -103,7 +103,7 @@
         </div>
         <div class="card-footer">
           <button type="submit" class="btn btn-primary" [disabled]="FormGroupPessoa.invalid">Confirmar</button>
-          <button type="button" class="btn" routerLink="">Cancelar</button>
+          <button type="button" class="btn" (click)="limparFormulario()">Reiniciar</button>
         </div>
       </form>
     </div>

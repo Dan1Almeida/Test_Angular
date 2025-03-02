@@ -57,7 +57,6 @@ export class EditarPessoaComponent {
     }
   }
 
-  // ------------------------------
   editarPessoa(): void {
     const id = this.FormGroupPessoa.get('id')?.value;
     const pessoa: IPessoa = this.FormGroupPessoa.value;
@@ -91,5 +90,10 @@ export class EditarPessoaComponent {
         },
       });
     }
+  }
+
+  limparFormulario() {
+    this.FormGroupPessoa.reset();
+    this.FormGroupBusca.reset();
   }
 }

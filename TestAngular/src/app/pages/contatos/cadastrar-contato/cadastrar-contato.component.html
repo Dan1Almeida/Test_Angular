@@ -15,7 +15,7 @@
       <div class="card-body">
         <form [formGroup]="FormGroupPessoa" (ngSubmit)="buscarPessoa()">
           <div class="d-flex justify-content-between mb-3">
-            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID da Pessoa a ser cadastrada" />
+            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID ser cadastrado" />
             <button type="button" class="btn ms-2" [disabled]="FormGroupPessoa.invalid" (click)="buscarPessoa()">Pesquisar</button>
           </div>
 
@@ -29,7 +29,7 @@
           </div>
 
           <div>
-            <label for="nome" class="form-label contato">Pessoa</label>
+            <label for="nome" class="form-label">Pessoa</label>
             <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome Completo" readonly />
           </div>
         </form>
@@ -96,8 +96,17 @@
         </div>
 
         <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Confirmar</button>
-          <button type="button" class="btn btn-secondary" routerLink="">Cancelar</button>
+
+          <div class="dropdown">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownReset" data-bs-toggle="dropdown" aria-expanded="false">
+              Reiniciar
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownReset">
+              <li><a class="dropdown-item" (click)="limparFormularioPessoa()">Reiniciar Pessoa</a></li>
+              <li><a class="dropdown-item" (click)="limparFormularioContato()">Reiniciar Contato</a></li>
+            </ul>
+          </div>
         </div>
       </form>
 

@@ -1,12 +1,5 @@
 @import "src/styles.scss";
 
-.contato{
-  font-size: 1.3rem;
-  display: block;
-  text-align: center;
-  width: 100%;
-
-}
 
 .card-container {
   justify-content: center;
@@ -31,5 +24,20 @@
 
   @media (max-width: 480px) {
     width: 100%;
+  }
+}
+
+
+.dropdown-menu {
+  background-color: $Bg_Cinza;
+  color: $Font_Branco;
+
+  .dropdown-item {
+    color: $Font_Branco;
+
+    &:hover {
+      background-color: $Font_Acendente;
+      color: white;
+    }
   }
 }

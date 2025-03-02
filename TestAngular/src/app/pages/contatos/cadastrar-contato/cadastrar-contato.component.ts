@@ -116,5 +116,15 @@ export class CadastrarContatoComponent {
       alert('Erro ao cadastrar contato.');
     }
   }
+
+  limparFormularioPessoa() {
+    this.FormGroupPessoa.reset();
+
+  }
+
+  limparFormularioContato() {
+    this.FormGroupContato.reset();
+  }
+
 }
 
