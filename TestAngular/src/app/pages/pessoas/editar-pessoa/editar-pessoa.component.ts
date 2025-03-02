@@ -21,9 +21,7 @@ export class EditarPessoaComponent {
   ) {
     this.formGroupPessoa = this.fb.group({
       id: [''],
-      nome: ['', [
-        Validators.required,
-        Validators.pattern('^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$'),
+      nome: ['', [Validators.required, Validators.pattern('^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$'),
         Validators.minLength(3),
         Validators.maxLength(100)
       ]],
@@ -46,7 +44,7 @@ export class EditarPessoaComponent {
         },
         (error) => {
           console.error(error);
-          alert('ID Inválido');
+          alert('ID Inválido | Pessoa não Encontrada');
           this.pessoaEncontrada = false;
         }
       );
@@ -64,12 +62,10 @@ export class EditarPessoaComponent {
           alert('Cadastro atualizado com sucesso!');
         },
         (error) => {
-          console.error('Erro ao atualizar pessoa:', error);
+          console.error(error);
           alert('Erro ao atualizar pessoa. Tente novamente.');
         }
       );
-    } else {
-      alert('Por favor, preencha todos os campos.');
     }
   }
 

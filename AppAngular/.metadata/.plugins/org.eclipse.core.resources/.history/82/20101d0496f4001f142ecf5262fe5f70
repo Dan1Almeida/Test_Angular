@@ -1,0 +1,13 @@
+package br.com.dnl.AppAngular.Model;
+
+import jakarta.persistence.Entity;
+
+@Entity 
+
+public class PessoaModel {
+
+	@Id
+	
+	
+	
+}

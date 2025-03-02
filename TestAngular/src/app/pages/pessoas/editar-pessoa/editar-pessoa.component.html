@@ -14,7 +14,7 @@
       <div class="card-body">
         <form [formGroup]="formGroupPessoa" (ngSubmit)="buscarPessoa()">
           <div class="d-flex justify-content-between">
-            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID" />
+            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID Para Edição" />
             <button type="button" class="btn ms-2" (click)="buscarPessoa()">Pesquisar</button>
           </div>
         </form>
@@ -34,14 +34,22 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-8 mb-3">
-              <label for="nome" class="form-label">Nome</label>
-              <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" />
+              <label for="nome" class="form-label">Nome Completo
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Nome e Sobrenome | Min 3 | Max 100">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </label>
+              <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome Completo" />
               <div *ngIf="formGroupPessoa.get('nome')?.invalid && formGroupPessoa.get('nome')?.touched" class="text-danger">
                 <small>Nome inserido de forma incorreta.</small>
               </div>
             </div>
             <div class="col-md-4 mb-3">
-              <label for="cep" class="form-label">CEP</label>
+              <label for="cep" class="form-label">CEP
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Formato: 05805-000">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </label>
               <input id="cep" formControlName="cep" type="text" class="form-control" placeholder="CEP" (blur)="buscarEndereco()" />
               <div *ngIf="formGroupPessoa.get('cep')?.invalid && formGroupPessoa.get('cep')?.touched" class="text-danger">
                 <small>CEP inserido de forma incorreta.</small>
@@ -50,21 +58,37 @@
           </div>
           <div class="row">
             <div class="col-md-12 mb-3">
-              <label for="logradouro" class="form-label">Logradouro</label>
-              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro" readonly/>
+              <label for="logradouro" class="form-label">Logradouro
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Preenchimento Automático (VIACEP)">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </label>
+              <input id="logradouro" formControlName="logradouro" type="text" class="form-control" placeholder="Logradouro"  readonly/>
             </div>
           </div>
           <div class="row">
             <div class="col-md-5 mb-3">
-              <label for="bairro" class="form-label">Bairro</label>
-              <input id="bairro" formControlName="bairro" type="text" class="form-control" placeholder="Bairro" readonly />
+              <label for="bairro" class="form-label">Bairro
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Preenchimento Automático (VIACEP)">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </label>
+              <input id="bairro" formControlName="bairro" type="text" class="form-control" placeholder="Bairro"  readonly />
             </div>
             <div class="col-md-5 mb-3">
-              <label for="cidade" class="form-label">Cidade</label>
-              <input id="cidade" formControlName="cidade" type="text" class="form-control" placeholder="Cidade" readonly />
+              <label for="cidade" class="form-label">Cidade
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Preenchimento Automático (VIACEP)">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </label>
+              <input id="cidade" formControlName="cidade" type="text" class="form-control" placeholder="Cidade"  readonly />
             </div>
             <div class="col-md-2 mb-3">
-              <label for="uf" class="form-label">UF</label>
+              <label for="uf" class="form-label">UF
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Preenchimento Automático (VIACEP)">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </label>
               <input id="uf" formControlName="uf" type="text" class="form-control" placeholder="UF" readonly/>
             </div>
           </div>

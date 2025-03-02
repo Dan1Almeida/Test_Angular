@@ -22,5 +22,12 @@
   <script src="https://kit.fontawesome.com/e5fa88c24e.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+    });
+  </script>
+
 </body>
 </html>

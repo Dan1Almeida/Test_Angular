@@ -1,0 +1,5 @@
+package br.com.dnl.AppAngular.Resource;
+
+public class PessoasResource {
+
+}

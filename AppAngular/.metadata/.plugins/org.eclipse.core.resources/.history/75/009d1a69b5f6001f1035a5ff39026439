@@ -1,0 +1,56 @@
+package br.com.dnl.AppAngular.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.dnl.AppAngular.Model.Contatos;
+import br.com.dnl.AppAngular.Repository.ContatosRepository;
+
+@Service
+public class ContatosService {
+
+    @Autowired
+    private ContatosRepository contatosRepository;
+
+    // ----- SALVAR -------------------------------------------------------------
+    public Contatos save(Contatos contato) {
+        return contatosRepository.save(contato);
+    }
+
+    // ----- ENCONTRAR POR ID -------------------------------------------------------------
+    public Optional<Contatos> findById(Long id) {
+        return contatosRepository.findById(id);
+    }
+
+    // ----- LISTAGEM -------------------------------------------------------------
+    public List<Contatos> findAll() {
+        return contatosRepository.findAll();
+    }
+
+    // ----- ATUALIZAR -------------------------------------------------------------
+    public Contatos update(Long id, Contatos contato) {
+        Optional<Contatos> findContato = contatosRepository.findById(id);
+
+        // Verificando se o contato foi encontrado
+        if (findContato.isPresent()) {
+            Contatos updContato = findContato.get();
+
+            // Atualizando os campos do contato
+            updContato.setCelular(contato.getCelular());
+            updContato.setTipo(contato.getTipo());
+            updContato.setContato(contato.getContato());
+
+            return contatosRepository.save(updContato);
+        }
+
+        return null;  // Caso o contato não seja encontrado
+    }
+
+    // ----- DELETAR -------------------------------------------------------------
+    public void delete(Long id) {
+        contatosRepository.deleteById(id);
+    }
+}

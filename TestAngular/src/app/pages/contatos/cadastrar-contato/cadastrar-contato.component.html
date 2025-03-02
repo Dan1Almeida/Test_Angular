@@ -15,13 +15,13 @@
       <div class="card-body">
         <form [formGroup]="formGroupPessoa" (ngSubmit)="buscarPessoa()">
           <div class="d-flex justify-content-between mb-3">
-            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID" />
+            <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID da Pessoa a ser cadasatrada" />
             <button type="button" class="btn ms-2" (click)="buscarPessoa()">Pesquisar</button>
           </div>
 
           <div>
-            <label for="nome" class="form-label contato">Cadastrar Contato de:</label>
-            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome" readonly/>
+            <label for="nome" class="form-label contato">Pessoa</label>
+            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome Completo" readonly/>
           </div>
       </form>
       </div>
@@ -41,21 +41,45 @@
 
           <div class="row">
             <div class="col mb-3">
-              <label for="celular" class="form-label">Celular</label>
-              <input id="celular" formControlName="celular" type="text" class="form-control" placeholder="Digite o número do celular" />
+              <label for="celular" class="form-label">Celular
+                <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="(01) 01010-0101">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </label>
+              <input id="celular" formControlName="celular" type="text" class="form-control"
+                placeholder="Digite o número do celular" />
             </div>
           </div>
+
           <div class="row">
             <div class="col mb-3">
               <label for="tipo" class="form-label">Tipo de Contato</label>
-              <input id="tipo" formControlName="tipo" type="text" class="form-control" placeholder="Ex: WhatsApp, Trabalho, Pessoal" />
+              <select id="tipo" formControlName="tipo" class="form-select">
+                <option value="" disabled selected>Selecione um tipo
+                  <button type="button" class="btn-icon" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Selecione Abaixo">
+                    <i class="fa-solid fa-circle-info"></i>
+                  </button>
+                </option>
+                <option *ngFor="let tipo of tiposContato" [value]="tipo.value">
+                  {{ tipo.label }}
+                </option>
+              </select>
             </div>
           </div>
 
           <div class="row">
             <div class="col mb-3">
               <label for="contato" class="form-label">Contato</label>
-              <input id="contato" formControlName="contato" type="text" class="form-control" placeholder="Informe o contato (email ou telefone)" />
+              <input id="contato" formControlName="contato" type="text" class="form-control" [placeholder]="getPlaceholder()" />
+
+              <div *ngIf="formGroupContato.get('contato')?.invalid && formGroupContato.get('contato')?.touched">
+                <small class="text-danger" *ngIf="formGroupContato.get('contato')?.hasError('email')">
+                  Formato de e-mail inválido.
+                </small>
+                <small class="text-danger" *ngIf="formGroupContato.get('contato')?.hasError('pattern')">
+                  Formato inválido.
+                </small>
+              </div>
             </div>
           </div>
 
@@ -66,6 +90,7 @@
           <button type="button" class="btn btn-secondary" routerLink="">Cancelar</button>
         </div>
       </form>
+
 
     </div>
   </div>

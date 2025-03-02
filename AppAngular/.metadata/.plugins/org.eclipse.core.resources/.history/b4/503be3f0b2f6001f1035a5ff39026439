@@ -1,0 +1,62 @@
+package br.com.dnl.AppAngular.Model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+@Entity
+public class Contatos {
+	@Column(nullable = false)
+    private String celular;
+
+    @Column(nullable = false)
+    private String tipo;
+
+    @Column(nullable = false)
+    private String contato;
+    
+	//---------------------------------
+    
+    public Contatos () {}
+    
+
+	public Contatos(String celular, String tipo, String contato) {
+		super();
+		this.celular = celular;
+		this.tipo = tipo;
+		this.contato = contato;
+	}
+	
+	//---------------------------------
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getContato() {
+		return contato;
+	}
+
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
+    
+    
+    
+    
+    
+    
+    
+    
+}

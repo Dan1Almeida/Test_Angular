@@ -93,6 +93,22 @@ body {
   }
 }
 
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  color: $Font_DescricaoBotao;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($Font_DescricaoBotao, 10%);
+  }
+
+  i {
+    font-size: 1rem;
+  }
+}
+
 // -------------
 
 .text-danger{

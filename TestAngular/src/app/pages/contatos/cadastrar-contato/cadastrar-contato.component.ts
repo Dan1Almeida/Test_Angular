@@ -28,10 +28,54 @@ export class CadastrarContatoComponent {
     });
 
     this.formGroupContato = this.fb.group({
-      celular: ['', [Validators.pattern(/^\d{11}$/)]],
+      celular: ['', [Validators.pattern(/^\(\d{2}\) 9\d{4}-\d{4}$/)]],
       tipo: [''],
       contato: [''],
     });
+
+    this.formGroupContato.get('tipo')?.valueChanges.subscribe((tipoSelecionado) => {
+      const contatoControl = this.formGroupContato.get('contato');
+
+      if (contatoControl) {
+        contatoControl.clearValidators();
+
+        switch (tipoSelecionado) {
+          case 'residencial':
+            contatoControl.setValidators([Validators.pattern(/^\(\d{2}\) \d{4}-\d{4}$/)]);
+            break
+          case 'profissional':
+            contatoControl.setValidators([Validators.pattern(/^\(\d{2}\) 9\d{4}-\d{4}$/)]);
+            break;
+          case 'email':
+            contatoControl.setValidators([Validators.email]);
+            break;
+          case 'social':
+            contatoControl.setValidators([Validators.pattern(/^@[a-zA-Z0-9_.]+$/)]);
+            break;
+        }
+
+        contatoControl.updateValueAndValidity();
+      }
+    });
+
+  }
+
+  tiposContato = [
+    { label: 'Telefone Residencial', value: 'residencial' },
+    { label: 'Telefone Profisional', value: 'profisional' },
+    { label: 'E-mail', value: 'email' },
+    { label: 'Social', value: 'social' },
+  ];
+
+  getPlaceholder(): string {
+    const tipo = this.formGroupContato.get('tipo')?.value;
+    switch (tipo) {
+      case 'residencial': return 'Exemplo: (01) 0101-0101';
+      case 'profisional': return 'Exemplo: (01) 90101-0101';
+      case 'email': return 'Exemplo: teste@teste.com';
+      case 'social': return 'Exemplo: Teste@Teste.com';
+      default: return 'Contato';
+    }
   }
 
   contatos: IContato[] = [];
@@ -47,7 +91,7 @@ export class CadastrarContatoComponent {
         },
         (error) => {
           console.error(error);
-          alert('ID Inválido');
+          alert('ID Inválido | Pessoa não Encontrada');
           this.pessoaEncontrada = false;
         }
       );
@@ -69,5 +113,7 @@ export class CadastrarContatoComponent {
       alert('Erro ao cadastrar contato.');
     }
   }
+
+
 }
 

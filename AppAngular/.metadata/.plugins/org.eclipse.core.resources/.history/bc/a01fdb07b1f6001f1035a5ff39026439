@@ -1,0 +1,16 @@
+package br.com.dnl.AppAngular.Model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+@Entity
+public class Contatos {
+	@Column(nullable = false)
+    private String celular;
+
+    @Column(nullable = false, length = 9)
+    private String tipo;
+
+    @Column(nullable = false)
+    private String contato;
+}
