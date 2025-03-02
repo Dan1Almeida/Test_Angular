@@ -4,15 +4,14 @@ import { PessoaService } from 'src/app/service/pessoa.service';
 import { ViaCepService } from 'src/app/service/viacep.service';
 import { IPessoa } from 'src/app/interfaces/pessoa';
 import { Endereco } from 'src/app/interfaces/endereco';
-import { Router } from '@angular/router';
-
+import {Router } from '@angular/router';
 @Component({
   selector: 'app-editar-pessoa',
   templateUrl: './editar-pessoa.component.html',
   styleUrls: ['./editar-pessoa.component.scss']
 })
 export class EditarPessoaComponent {
-
+  FormGroupBusca: FormGroup;
   FormGroupPessoa: FormGroup;
   pessoaEncontrada: boolean = false;
 
@@ -22,6 +21,10 @@ export class EditarPessoaComponent {
     private readonly viaCepService: ViaCepService,
     private readonly router: Router,
   ) {
+
+    this.FormGroupBusca = this.fb.group({
+      id: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.min(1)]],
+    })
     this.FormGroupPessoa = this.fb.group({
       id: [''],
       nome: ['', [Validators.required, Validators.pattern('^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$'),
@@ -37,7 +40,7 @@ export class EditarPessoaComponent {
   }
 
   buscarPessoa(): void {
-    const id = this.FormGroupPessoa.get('id')?.value;
+    const id = this.FormGroupBusca.get('id')?.value;
 
     if (id) {
       this.pessoaService.buscarPessoaPorId(id).subscribe({
@@ -47,13 +50,14 @@ export class EditarPessoaComponent {
         },
         error: (error) => {
           console.error(error);
-          alert('ID Inválido | Pessoa não Encontrada');
+          alert('Pessoa não Encontrada');
           this.pessoaEncontrada = false;
         }
       });
     }
   }
 
+  // ------------------------------
   editarPessoa(): void {
     const id = this.FormGroupPessoa.get('id')?.value;
     const pessoa: IPessoa = this.FormGroupPessoa.value;
@@ -64,6 +68,8 @@ export class EditarPessoaComponent {
           alert('Cadastro atualizado com sucesso!');
           this.router.navigate(['']);
         });
+    } else {
+      alert('Não foi possível atualizar cadastrov');
     }
   }
 

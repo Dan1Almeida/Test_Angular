@@ -20,7 +20,6 @@
           </div>
 
           <div *ngIf="FormGroupPessoa.get('id')?.invalid && FormGroupPessoa.get('id')?.touched" class="text-danger">
-
             <small *ngIf="FormGroupPessoa.get('id')?.hasError('min')">
               Formato inválido.
             </small>

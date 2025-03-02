@@ -12,10 +12,18 @@
         <h3>Pesquisar ID</h3>
       </div>
       <div class="card-body">
-        <form [formGroup]="FormGroupPessoa" (ngSubmit)="buscarPessoa()">
+        <form [formGroup]="FormGroupBusca" (ngSubmit)="buscarPessoa()">
           <div class="d-flex justify-content-between">
             <input id="id" formControlName="id" type="text" class="form-control" placeholder="ID Para Edição" />
-            <button type="button" class="btn ms-2" (click)="buscarPessoa()">Pesquisar</button>
+            <button type="button" class="btn ms-2" [disabled]="FormGroupBusca.invalid" (click)="buscarPessoa()">Pesquisar</button>
+          </div>
+          <div *ngIf="FormGroupBusca.get('id')?.invalid && FormGroupBusca.get('id')?.touched" class="text-danger">
+            <small *ngIf="FormGroupBusca.get('id')?.hasError('min')">
+              Formato inválido.
+            </small>
+            <small *ngIf="FormGroupBusca.get('id')?.hasError('pattern')">
+              Formato inválido.
+            </small>
           </div>
         </form>
       </div>
