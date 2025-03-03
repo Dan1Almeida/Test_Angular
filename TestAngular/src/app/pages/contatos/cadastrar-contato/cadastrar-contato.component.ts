@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPessoa } from 'src/app/interfaces/pessoa';
@@ -119,29 +120,50 @@ export class CadastrarContatoComponent {
 
   cadastrarContato(): void {
     const pessoaId = this.FormGroupPessoa.get('id')?.value;
+    const contato: IContato = this.FormGroupContato.value;
+    console.log('Dados do contato antes do envio:', this.FormGroupContato.value);
 
     if (this.FormGroupContato.valid) {
-      this.contatoService.cadastrarContato(pessoaId, this.FormGroupContato.value).subscribe(response =>{
-        console.log(response);
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            }
-          });
-          Toast.fire({
-            icon: "success",
-            title: "Contato cadastrado com sucesso"
-          });
-        this.FormGroupContato.reset();
-        this.router.navigate(['']);
+      this.contatoService.cadastrarContato(pessoaId, contato).subscribe({
+        next: (response) => {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Cadastro realizado com sucesso"
+      });
+          this.FormGroupContato.reset();
+        },
+        error: (error) => {
+          console.error(error);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cadastro Não realizado"
+      });
+        }
       });
     }
+
   }
 
   limparFormularioPessoa() {
@@ -161,4 +183,3 @@ export class CadastrarContatoComponent {
   }
 
 }
-

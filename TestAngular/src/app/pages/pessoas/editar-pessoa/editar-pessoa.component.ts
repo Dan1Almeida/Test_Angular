@@ -6,6 +6,7 @@ import { IPessoa } from 'src/app/interfaces/pessoa';
 import { Endereco } from 'src/app/interfaces/endereco';
 import {Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-editar-pessoa',
   templateUrl: './editar-pessoa.component.html',
@@ -96,8 +97,6 @@ const Toast = Swal.mixin({
           });
           this.router.navigate(['']);
         });
-    } else {
-      alert('Não foi possível atualizar cadastrov');
     }
   }
 

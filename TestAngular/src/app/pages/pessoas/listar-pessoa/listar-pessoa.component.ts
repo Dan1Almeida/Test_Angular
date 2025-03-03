@@ -49,13 +49,12 @@ export class ListarPessoaComponent implements OnInit{
 
   deletarPessoa(id: number): void {
     Swal.fire({
-      title: 'Tem certeza?',
-      text: 'Você não poderá reverter esta ação!',
+      title: 'Confirmar exclusão de pessoa?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, excluir!',
+      confirmButtonText: 'Confirmar',
     }).then((result) => {
       if (result.isConfirmed) {
         this.pessoaService.deletarPessoa(id).subscribe({
