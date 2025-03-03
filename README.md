@@ -99,6 +99,12 @@ https://github.com/rafaelblink/ecommerce-jps-2025-angular
 
 - Este projeto foi desenvolvido principalmente para a aplicação de conhecimentos em Angular. Dessa forma, todas as validações, ligações entre componentes e demais funcionalidades estão centralizadas no Angular. O backend, denominado AppAngular, é uma API simplificada baseada no projeto [CRUD_JAVA](https://github.com/Dan1Almeida/CRUD_JAVA/), servindo apenas para fornecer os endpoints e gerenciar o cadastro no banco de dados H2.
 
+- Vídeo de demonstração no Link abaixo
+
+```
+https://youtu.be/zF3XRsW9Y28?si=1GMLrABxbkKlkFQV
+``` 
+
 
  
 
