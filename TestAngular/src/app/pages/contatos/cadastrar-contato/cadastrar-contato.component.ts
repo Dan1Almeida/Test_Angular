@@ -79,7 +79,7 @@ export class CadastrarContatoComponent {
       case 'residencial': return 'Exemplo: (01) 0101-0101';
       case 'profissional': return 'Exemplo: (01) 90101-0101';
       case 'email': return 'Exemplo: teste@teste.com';
-      case 'social': return 'Exemplo: Teste@Teste.com';
+      case 'social': return 'Exemplo: @Social';
       default: return 'Contato';
     }
   }
