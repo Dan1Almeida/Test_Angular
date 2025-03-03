@@ -1,6 +1,6 @@
 # Porjeto Angular | Java
 
-> Este projeto tem como principal objeivo criar uma interação de front-end com back-end, utilizando como principal ferramenta o Angular 17, nele será capaz de manipular o objeto pessoa, criando, editando, buscando e deletando, com isso podendo cadastrar contatos a essa pessoa. tudo isso de pensado de a facilitar a experiencia do usuario.
+> Este projeto tem como principal objeivo criar uma interação de front-end com back-end, utilizando como principal ferramenta o Angular 16, nele será capaz de manipular o objeto pessoa, criando, editando, buscando e deletando, com isso podendo cadastrar contatos a essa pessoa. tudo isso de pensado de a facilitar a experiencia do usuario.
 ---
 
 ## Tecnologias Utilizadas
@@ -27,6 +27,12 @@ Package                      Version
 - **Backend**
  
 	> Project: Maven | Language: Java | Spring Boot: 3.4.2 | Packaging: Jar | Java: 21
+
+- O Arquivo do Backend esta presente no repositório abaixo
+  
+```
+https://github.com/Dan1Almeida/CRUD_Angular-Java
+```	
 
 - **Ferramentas de desenvolvimento:**
 
