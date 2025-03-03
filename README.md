@@ -1,4 +1,4 @@
-# Porjeto Angular | Java
+# Projeto Angular | Java
 
 > Este projeto tem como principal objeivo criar uma interação de front-end com back-end, utilizando como principal ferramenta o Angular 16, nele será capaz de manipular o objeto pessoa, criando, editando, buscando e deletando, com isso podendo cadastrar contatos a essa pessoa. tudo isso de pensado de a facilitar a experiencia do usuario.
 ---
@@ -37,12 +37,16 @@ https://github.com/Dan1Almeida/CRUD_Angular-Java
 - **Ferramentas de desenvolvimento:**
 
 	> Visua Studio Code | Eclipse IDE for Java Developers - 2024-09
+
+ --- 
  
 ## Inicializando o Projeto 
 
 - Após a instalação das tecnologias, primeiro habilite o localhost:8080, onde o backend do projeto está localizado na pasta AppAngular.
 
 - Em seguida, habilite e acesse o localhost:4200, responsável por executar a aplicação Angular, que está na pasta TestAngular.
+
+---
 
 ## Resultados e Observações gerais
 > Este projeto tem como principal objetivo testar conhecimentos em Angular utilizando um CRUD e seu funcionamento como parâmetro. O projeto se encontra com os seguintes _Status_:
@@ -71,6 +75,8 @@ https://github.com/Dan1Almeida/CRUD_Angular-Java
 
 :white_check_mark: O componente de tabela deve receber um Array como `<@Input>`.
 
+---
+
 ### Objetivos Extras
 
 :white_check_mark: Projeto desenvolvido para uma experiência controlada, evitando resultados inesperados por parte dos usuários.
@@ -86,6 +92,8 @@ https://github.com/Dan1Almeida/CRUD_Angular-Java
 :white_check_mark: Possibilidade de inclusão de contatos extras.
 
 :white_check_mark: Filtros na página de listagem.
+
+---
 
 ### Observações gerais
 
